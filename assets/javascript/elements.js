@@ -24,69 +24,81 @@ var $mealDetail = `<div class="row">
                         </div>
                     </div>`
 
-
-
 var $mealDetail2 = `<div id="accordion">
-<div class="card">
-  <div class="card-header" id="headingOne">
-    <h5 class="mb-0">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Instructions 
-      </button>
-      <button class="btn btn-link" id="video" href="">
-      Watch the instructional video
-      </button>
-      <button class="btn btn-link" id="video" href="">
-      Learn More at 
-      </button>
-      <button class="btn btn-link" id="video" href="">
-      Add to Collection
-      </button>
-    </h5>
-    
-  </div>
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Instructions
+                                    </button>
+                                    <button class="btn btn-link" id="video" href="">
+                                        Watch the instructional video
+                                    </button>
+                                    <button class="btn btn-link" id="video" href="">
+                                        Learn More at
+                                    </button>
+                                    <button class="btn btn-link" id="video" href="">
+                                        Add to Collection
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                                <div class="card-body" id="instr">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        Ingredients
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion" style="">
+                                <div class="card-body text-center" id="ingre">
 
-  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-    <div class="card-body" id="instr">
-    </div>
-  </div>
-</div>
-<div class="card">
-  <div class="card-header" id="headingTwo">
-    <h5 class="mb-0">
-      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        Ingredients
-      </button>
-    </h5>
-  </div>
-  <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion" style="">
-    <div class="card-body text-center" id="ingre">
-     
-    </div>
-  </div>
-</div>
-<div class="card">
-  <div class="card-header" id="headingThree">
-    <h5 class="mb-0">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Measurements
-      </button>
-    </h5>
-  </div>
-  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" style="">
-    <div class="card-body" id="measure">
-        <table class="table table-hover">
-             <thead>
-                <tr>
-                    <th scope="col">Ingredient</th>
-                    <th scope="col">Measure</th>
-                </tr>
-            </thead>
-            <tbody id="measureTable">
-            </tbody>
-        </table>
-    </div>
-  </div>
-  <div class="clear"></div>
-</div>
-</div>`
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Measurements
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" style="">
+                                <div class="card-body" id="measure">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ingredient</th>
+                                                <th scope="col">Measure</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="measureTable">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        </div>`
+
+var homePageContent = `<div class="row justify-content-lg-center">
+                            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                                <div class="searchContent text-center">
+                                    <h1 class"heading">Food For Thought</h1>
+                                    <h4>This is where food is life</h4>
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="input" placeholder="Search for your meals">
+                                            <div class="space"><span class="error" id="errorText"></span></div>
+                                        </div>
+                                        <button id="submit" type="submit" class="btn btn-primary btn-lg">Search</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>`
