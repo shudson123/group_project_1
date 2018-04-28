@@ -87,7 +87,7 @@ var $mealDetail2 = `<div id="accordion">
                         </div>
                         </div>`
 
-var homePageContent = `<div class="row justify-content-lg-center">
+var $homePageContent = `<div class="row justify-content-lg-center">
                             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                                 <div class="searchContent text-center">
                                     <h1 class"heading">Food For Thought</h1>
