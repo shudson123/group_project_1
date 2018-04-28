@@ -58,90 +58,16 @@ $(document).on('click', '.index', function () {
     var video = detail.strYoutube;
     var source = detail.strSource;
     var photo = detail.strMealThumb;
-    var ing1 = detail.strIngredient1;
-    var ing2 = detail.strIngredient2;
-    var ing3 = detail.strIngredient3;
-    var ing4 = detail.strIngredient4;
-    var ing5 = detail.strIngredient5;
-    var ing6 = detail.strIngredient6;
-    var ing7 = detail.strIngredient7;
-    var ing9 = detail.strIngredient9;
-    var ing8 = detail.strIngredient8;
-    var ing11 = detail.strIngredient11;
-    var ing10 = detail.strIngredient10;
-    var ing12 = detail.strIngredient12;
-    var ing13 = detail.strIngredient13;
-    var ing14 = detail.strIngredient14;
-    var ing15 = detail.strIngredient15;
-    var ing16 = detail.strIngredient16;
-    var ing17 = detail.strIngredient17;
-    var ing18 = detail.strIngredient18;
-    var ing19 = detail.strIngredient19;
-    var ing20 = detail.strIngredient20;
-
-
 //create empty array and if ingredient is not an empty string, push into the array
-var arr = [];
-    if (ing1.length > 0 ) {
-        arr.push(ing1);
-    }
-    if (ing2.length > 0) {
-        arr.push(ing2);
-    }
-    if (ing3.length > 0) {
-        arr.push(ing3);
-    }
-    if (ing4.length > 0) {
-        arr.push(ing4);
-    }
-    if (ing5.length > 0) {
-        arr.push(ing5);
-    }
-    if (ing6.length > 0) {
-        arr.push(ing6);
-    }
-    if (ing7.length > 0) {
-        arr.push(ing7);
-    }
-    if (ing8.length > 0) {
-        arr.push(ing8);
-    }
-    if (ing9.length > 0) {
-        arr.push(ing9);
-    }
-    if (ing10.length > 0) {
-        arr.push(ing10);
-    }
-    if (ing11.length > 0) {
-        arr.push(ing11);
-    }
-    if (ing12.length > 0) {
-        arr.push(ing12);
-    }
-    if (ing13.length > 0) {
-        arr.push(ing13);
-    }
-    if (ing14.length > 0) {
-        arr.push(ing14);
-    }
-    if (ing15.length > 0) {
-        arr.push(ing15);
-    }
-    if (ing16 !== null && ing16 !== '') {
-        arr.push(ing16);
-    }
-    if (ing17 !== null && ing17 !== '') {
-        arr.push(ing17);
-    }
-    if (ing18 !== null && ing18 !== '') {
-        arr.push(ing18);
-    }
-    if (ing19 !== null && ing19 !== '') {
-        arr.push(ing19);
-    }
-    if (ing20 !== null && ing20 !== '') {
-        arr.push(ing20);
-    }
+   
+    var arr = [];
+    var keys = Object.keys(detail);
+    keys.forEach(function(key){
+    if( /strIngredient.*/.test(key) && detail[key] !== null && detail[key] !== ''){
+        arr.push(detail[key]);
+        }
+    });
+
 
     $('#container').empty();
     $('#container').append($mealDetail);
@@ -164,9 +90,7 @@ var arr = [];
         $('#ingre').append(ingre);
         $('#measureTable').append(measure);
 
-    });
-
-    
+    });  
 });
 
 
@@ -178,5 +102,4 @@ $(document).on('click', '#ing', function () {
 
 $('#home').click(function(){
 $('#majorContainer').empty().append($homePageContent);
-
 });
