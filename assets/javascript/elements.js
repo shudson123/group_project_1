@@ -31,13 +31,13 @@ var $mealDetail2 = `<div id="accordion">
                                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         Instructions
                                     </button>
-                                    <button class="btn btn-link" id="video" href="">
+                                    <a class="btn btn-link" id="video" data-toggle="modal" data-target=".bd-example-modal-lg">
                                         Watch the instructional video
-                                    </button>
-                                    <button class="btn btn-link" id="video" href="">
-                                        Learn More at
-                                    </button>
-                                    <button class="btn btn-link" id="video" href="">
+                                    </a>
+                                    <a class="btn btn-link" id="sourceLink" target="_blank">
+                                        Learn More
+                                    </a>
+                                    <button class="btn btn-link" id="firebase">
                                         Add to Collection
                                     </button>
                                 </h5>
@@ -83,9 +83,23 @@ var $mealDetail2 = `<div id="accordion">
                                     </table>
                                 </div>
                             </div>
-                            <div class="clear"></div>
                         </div>
-                        </div>`
+                        <div id='modal' class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button id="closeModal"type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body"  id="modalBody">
+                             
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        </div>`;
 
 var $homePageContent = `<div class="row justify-content-lg-center">
                             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
@@ -101,4 +115,6 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                                     </form>
                                 </div>
                             </div>
-                        </div>`
+                        </div>`;
+
+var $mealVideo =  `<iframe id="videoIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
