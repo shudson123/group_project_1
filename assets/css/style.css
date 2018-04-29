@@ -77,3 +77,8 @@ html{
 .error{
     color:red;
 }
+
+
+.modal {
+    height:600px;
+}

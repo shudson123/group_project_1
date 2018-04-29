@@ -1,4 +1,9 @@
 var meal;
+var videoSource;
+var mealName;
+var photo;
+var source;
+
 
 //get text search field and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
@@ -7,7 +12,7 @@ $(document).on('click', '#submit', function (e) {
 //evaluate that search is not empty string
     if (term.length > 0) {
         $('#errorText').text('');
-        console.log(term);
+        // console.log(term);
 
         var settings = {
             "url": "https://www.themealdb.com/api/json/v1/1/search.php?s=" + term,
@@ -46,18 +51,17 @@ $(document).on('click', '#submit', function (e) {
             e.preventDefault();
         });
 
-
 //get the individual meal 
 $(document).on('click', '.index', function () {
     var unit = $(this).attr('id');
     var detail = meal[unit];
     var category = detail.strCategory;
     var inst = detail.strInstructions;
-    var name = detail.strMeal;
+    mealName = detail.strMeal;
     var area = detail.strArea;
-    var video = detail.strYoutube;
-    var source = detail.strSource;
-    var photo = detail.strMealThumb;
+    videoSource = detail.strYoutube;
+    source = detail.strSource;
+    photo = detail.strMealThumb;
 //create empty array and if ingredient is not an empty string, push into the array
    
     var arr = [];
@@ -68,38 +72,58 @@ $(document).on('click', '.index', function () {
         }
     });
 
-
+//empty the container, add the meal details: name, category and area, 
     $('#container').empty();
     $('#container').append($mealDetail);
-    $('#title').text(name);
+    $('#title').text(mealName);
     $('#category').text(category);
     $('#area').text(area);
     $('#container').append($mealDetail2);
     $('#instr').text(detail.strInstructions);
 
-
-    console.log(arr);
+// console.log(arr);
 // create the ingredient table
     $('#ingTable').empty();
     arr.forEach(function(ing1){
-        var ingre = `<button class="btn btn-success"id='ing'>${ing1}</button>`;
+        var ingre = `<button class="btn btn-success" id="ing" data-toggle="modal" data-target=".bd-example-modal-lg">${ing1.charAt(0).toUpperCase() + ing1.toLowerCase().slice(1)}</button>`;
+         
         var measure = `<tr>
                             <td>${ing1.toUpperCase()}</td>
                             <td>${ing1}</td>
                         </tr>`;
         $('#ingre').append(ingre);
         $('#measureTable').append(measure);
-
-    });  
+    }); 
 });
 
 
 //this click even will get the text from the ingredient and pass it to the nutrition api
 $(document).on('click', '#ing', function () {
     var term = $(this).text();
-    console.log(term);
+    // console.log(term);
 });
 
+//open the instrctional video in a modal window
+$(document).on('click', '#video', function () {
+    $('#modalBody').empty().append($mealVideo);
+    $('#exampleModalLabel').text('Instructional Video for ' + mealName);
+    var videoID = videoSource.split('v=', 2)[1];
+    $('#videoIframe').attr('src', `https://www.youtube.com/embed/${videoID}?autoplay=1`);
+});
+
+//remove all content from the modal when it is closed
+$('body').on('hidden.bs.modal', '.modal', function () {
+    $('#modalBody').empty();
+});
+
+//add the source reference to the link
+$(document).on('click', '#sourceLink', function () {
+    $('#sourceLink').attr('href', source);
+});
+
+//user is taken back to the home page when the home button is clicked
 $('#home').click(function(){
 $('#majorContainer').empty().append($homePageContent);
 });
+
+
