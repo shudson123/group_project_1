@@ -95,11 +95,11 @@ var $mealDetail2 = `<div id="accordion">
                               </div>
                               <div class="modal-body"  id="modalBody">
                              
-                                </div>
+                              </div>
                             </div>
                         </div>
                         <div class="clear"></div>
-                        </div>`;
+                    </div>`;
 
 var $homePageContent = `<div class="row justify-content-lg-center">
                             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">

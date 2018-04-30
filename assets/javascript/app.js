@@ -113,6 +113,7 @@ $(document).on('click', '#video', function () {
 
 //remove all content from the modal when it is closed
 $('body').on('hidden.bs.modal', '.modal', function () {
+    $('#exampleModalLabel').text('');
     $('#modalBody').empty();
 });
 
