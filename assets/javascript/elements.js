@@ -32,7 +32,7 @@ var $mealDetail2 = `<div id="accordion" class="accordion">
                                         Instructions
                                     </button>
                                     <button class="btn btn-info" id="video" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                        Watch instructional video
+                                        Watch Instructional Video
                                     </button>
                                     <a class="btn btn-info" id="sourceLink" target="_blank">
                                         Learn More
@@ -116,7 +116,7 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                                 <div class="searchContent text-center">
                                     <h1 class"heading">Food For Thought</h1>
-                                    <h4>This is where food is life</h4>
+                                    <h4>This is Where Food is Life</h4>
                                     <form>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="input" placeholder="Search meals">
