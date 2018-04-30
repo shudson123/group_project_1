@@ -119,7 +119,7 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                                     <h4>This is where food is life</h4>
                                     <form>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="input" placeholder="Search for your meals">
+                                            <input type="text" class="form-control" id="input" placeholder="Search meals">
                                             <div class="space"><span class="error" id="errorText"></span></div>
                                         </div>
                                         <button id="submit" type="submit" class="btn btn-primary btn-lg">Search</button>

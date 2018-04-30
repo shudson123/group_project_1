@@ -38,8 +38,8 @@ $(document).on('click', '#submit', function (e) {
                     meal = response.meals;
                     for (var i = 0; i < meal.length; i++) {
                         
-                         var list = `<tr> 
-                                        <td class='index' id='${[i]}'>${meal[i].strMeal}</td>
+                         var list = `<tr class='index' id='${[i]}'> 
+                                        <td >${meal[i].strMeal}</td>
                                         <td>${meal[i].strCategory}</td>
                                         <td>${meal[i].strArea}</td>
                                      </tr>`;
@@ -65,10 +65,8 @@ $(document).on('click', '.index', function () {
     source = detail.strSource;
     mealName = detail.strMeal;
     videoSource = detail.strYoutube;
-    
-    
-//create empty array and if ingredient is not an empty string, push into the array
-   
+      
+//create empty array and if ingredient and mesurement are not an empty string, push into the array
     var ingArray = [];
     var meaArray = [];
     var keys = Object.keys(detail);
@@ -80,7 +78,6 @@ $(document).on('click', '.index', function () {
         meaArray.push(detail[key]);
         }
     });
-
 
 //empty the container, add the meal details: name, category and area, 
     $('#container').empty();
@@ -99,7 +96,6 @@ $(document).on('click', '.index', function () {
         var ingre = `<button class="btn btn-success" id="ing" data-toggle="modal" data-target=".bd-example-modal-lg">${ingred}</button>`;
         $('#ingre').append(ingre);
     });
- 
     
 //add photo, ingredients and measurement 
     $('#mealImg img').attr('src', photo);
@@ -109,9 +105,8 @@ $(document).on('click', '.index', function () {
                          <td class="meaItem">${meaIng}</td>
                          <td class="meaItem">${meaArray[k]}</td>
                       </tr>`;
-        $('#measureTable').append(measure);
-        
-    }
+        $('#measureTable').append(measure);  
+        }
 });
 
 
