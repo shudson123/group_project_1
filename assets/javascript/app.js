@@ -29,8 +29,8 @@ $(document).on('click', '#submit', function (e) {
                 //if meal is found, generate result and display in table
                 } else {
                     // $('tbody').empty();
-                    $('#logo').addClass('hide');
                     $('body').removeClass('background');
+                    $('body').addClass('secondBackground');
 
                     $('#majorContainer').empty();
                     $('#majorContainer').append($resultPage);
@@ -137,8 +137,8 @@ $(document).on('click', '#sourceLink', function () {
 
 //user is taken back to the home page when the home button is clicked
 $('#home').click(function(){
-    $('#logo').removeClass('hide');
     $('body').addClass('background');
+    $('body').removeClass('secondBackground');
     $('#majorContainer').empty().append($homePageContent);
 });
 
