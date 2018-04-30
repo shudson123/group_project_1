@@ -42,7 +42,7 @@ a img{
 }
 
 h1{
-    font-size:3.5rem;
+    font-size:3.4rem;
     text-shadow: 0px 0px 8px rgb(22, 7, 7);
     letter-spacing: 0.3rem;
 }
@@ -188,4 +188,9 @@ body{
 
 .modal-title{
     color: rgb(106,195,29);
+}
+
+.dropdown-item:hover{
+    background: rgb(106,195,29);
+    color:#ffffff;
 }
