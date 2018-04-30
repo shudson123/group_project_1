@@ -127,3 +127,5 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                         </div>`;
 
 var $mealVideo =  `<iframe id="videoIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
+
+ // var videoID = videoSource.split('v=', 2)[1];

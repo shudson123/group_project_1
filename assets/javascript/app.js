@@ -21,6 +21,7 @@ $(document).on('click', '#submit', function (e) {
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            console.log(response.meals[0].strMeasure1);
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
                 //if meal not, found display message
