@@ -100,9 +100,7 @@ var $mealDetail2 = `<div id="accordion" class="accordion">
                                 <div class="modal-content">
                                 <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button id="closeModal"type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               </div>
                               <div class="modal-body"  id="modalBody">
                              
