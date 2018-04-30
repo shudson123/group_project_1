@@ -16,6 +16,7 @@ $(document).on('click', '#submit', function (e) {
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            console.log(response.meals[0].strMeasure1);
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
                 //if meal not, found display message
@@ -170,11 +171,6 @@ var arr = [];
 });
 
 
-//this click even will get the text from the ingredient and pass it to the nutrition api
-$(document).on('click', '#ing', function () {
-    var term = $(this).text();
-    console.log(term);
-});
 
 $('#home').click(function(){
 $('#majorContainer').empty().append($homePageContent);
