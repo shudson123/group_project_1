@@ -29,6 +29,9 @@ $(document).on('click', '#submit', function (e) {
                 //if meal is found, generate result and display in table
                 } else {
                     // $('tbody').empty();
+                    $('#logo').addClass('hide');
+                    $('body').removeClass('background');
+
                     $('#majorContainer').empty();
                     $('#majorContainer').append($resultPage);
     
@@ -55,22 +58,29 @@ $(document).on('click', '#submit', function (e) {
 $(document).on('click', '.index', function () {
     var unit = $(this).attr('id');
     var detail = meal[unit];
-    var category = detail.strCategory;
-    var inst = detail.strInstructions;
-    mealName = detail.strMeal;
     var area = detail.strArea;
-    videoSource = detail.strYoutube;
-    source = detail.strSource;
+    var inst = detail.strInstructions;
+    var category = detail.strCategory;
     photo = detail.strMealThumb;
+    source = detail.strSource;
+    mealName = detail.strMeal;
+    videoSource = detail.strYoutube;
+    
+    
 //create empty array and if ingredient is not an empty string, push into the array
    
-    var arr = [];
+    var ingArray = [];
+    var meaArray = [];
     var keys = Object.keys(detail);
     keys.forEach(function(key){
     if( /strIngredient.*/.test(key) && detail[key] !== null && detail[key] !== ''){
-        arr.push(detail[key]);
+        ingArray.push(detail[key]);
+        }
+    if( /strMeasure.*/.test(key) && detail[key] !== null && detail[key] !== ''){
+        meaArray.push(detail[key]);
         }
     });
+
 
 //empty the container, add the meal details: name, category and area, 
     $('#container').empty();
@@ -81,19 +91,27 @@ $(document).on('click', '.index', function () {
     $('#container').append($mealDetail2);
     $('#instr').text(detail.strInstructions);
 
-// console.log(arr);
+
 // create the ingredient table
     $('#ingTable').empty();
-    arr.forEach(function(ing1){
-        var ingre = `<button class="btn btn-success" id="ing" data-toggle="modal" data-target=".bd-example-modal-lg">${ing1.charAt(0).toUpperCase() + ing1.toLowerCase().slice(1)}</button>`;
-         
-        var measure = `<tr>
-                            <td>${ing1.toUpperCase()}</td>
-                            <td>${ing1}</td>
-                        </tr>`;
+    ingArray.forEach(function(ing1){
+        var ingred = ing1.charAt(0).toUpperCase() + ing1.toLowerCase().slice(1);
+        var ingre = `<button class="btn btn-success" id="ing" data-toggle="modal" data-target=".bd-example-modal-lg">${ingred}</button>`;
         $('#ingre').append(ingre);
+    });
+ 
+    
+//add photo, ingredients and measurement 
+    $('#mealImg img').attr('src', photo);
+    for (var k = 0; k < ingArray.length && k < meaArray.length; k++) {
+        var meaIng = ingArray[k].charAt(0).toUpperCase() + ingArray[k].toLowerCase().slice(1);
+        var measure = `<tr>
+                         <td class="meaItem">${meaIng}</td>
+                         <td class="meaItem">${meaArray[k]}</td>
+                      </tr>`;
         $('#measureTable').append(measure);
-    }); 
+        
+    }
 });
 
 
@@ -124,7 +142,9 @@ $(document).on('click', '#sourceLink', function () {
 
 //user is taken back to the home page when the home button is clicked
 $('#home').click(function(){
-$('#majorContainer').empty().append($homePageContent);
+    $('#logo').removeClass('hide');
+    $('body').addClass('background');
+    $('#majorContainer').empty().append($homePageContent);
 });
 
 
