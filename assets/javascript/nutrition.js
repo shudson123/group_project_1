@@ -9,7 +9,7 @@ var $nutrientTable= `<table class="table table-sm">
 <tbody>
   <tr>
     <th scope="row">Calories</th>
-    <td id = "calAmount"></td>
+    <td colspan= "2" id = "calAmount"></td>
   </tr>
   <tr>
     <th scope="row">Cholesterol</th>
@@ -72,7 +72,11 @@ $(document).on('click', '#ing', function () {
   //open the nutrient table for ingredient in modal window
   $('#modalBody').empty().append($nutrientTable);
   $('#exampleModalLabel').append(chosenIngredient);
+
+  
     var term = $(this).text();
+    //this query uses the natural word api to pull a matching ingredient name for the next api
+
     var common = {
         "url": "https://trackapi.nutritionix.com/v2/search/instant",
         "method": "GET",
@@ -85,6 +89,7 @@ $(document).on('click', '#ing', function () {
           "query": term,
         }
       }
+      // this query uses the search term from the first query to find the nutrient profile of the food
       $.ajax(common).done(function (response){
         var nutrientItem=response.common[0].food_name;
         console.log(nutrientItem);
@@ -100,9 +105,11 @@ $(document).on('click', '#ing', function () {
               "query": nutrientItem,
             }
           }
+
+          // this area enters the name of the food, the serving size, list of nutrients and nutrient amount for the selected ingredient into a table
           $.ajax(settings).done(function (response){
             console.log(response);
-            console.log((response.foods[0].nf_calories)+" calories per "+(response.foods[0].serving_unit));
+            console.log(response.foods);
             $('#servingSize').empty().append("Per "+response.foods[0].serving_unit);
             $('#calAmount').empty().append(response.foods[0].nf_calories);
             $('#cholesterolAmount').empty().append(response.foods[0].nf_cholesterol);
@@ -115,12 +122,10 @@ $(document).on('click', '#ing', function () {
             $('#sugarAmount').empty().append(response.foods[0].nf_sugars);
             $('#totalCarbohydrateAmount').empty().append(response.foods[0].nf_total_carbohydrate);
             $('#totalFatAmount').empty().append(response.foods[0].nf_total_fat);
-            
            })
 
       })
 ;
   
- // var videoID = videoSource.split('v=', 2)[1];
 });
 
