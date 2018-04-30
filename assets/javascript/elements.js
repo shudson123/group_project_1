@@ -10,7 +10,7 @@ var $resultPage = `<div class="container" id="container">
                         <tbody id='mealTable'>
                         </tbody>
                     </table>
-                </div>`
+                </div>`;
 
 var $mealDetail = `<div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -22,35 +22,36 @@ var $mealDetail = `<div class="row">
                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="item" id="area"></div>
                         </div>
-                    </div>`
+                    </div>`;
 
-var $mealDetail2 = `<div id="accordion">
+var $mealDetail2 = `<div id="accordion" class="accordion">
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <button class="btn toggleBtn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         Instructions
                                     </button>
-                                    <a class="btn btn-link" id="video" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                        Watch the instructional video
-                                    </a>
-                                    <a class="btn btn-link" id="sourceLink" target="_blank">
+                                    <button class="btn btn-info" id="video" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                        Watch instructional video
+                                    </button>
+                                    <a class="btn btn-info" id="sourceLink" target="_blank">
                                         Learn More
                                     </a>
-                                    <button class="btn btn-link" id="firebase">
+                                    <button class="btn btn-info" id="firebase">
                                         Add to Collection
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                <div class="card-body" id="instr">
+                                <div class="card-body">
+                                <p id="instr" class="instr"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <button class="btn toggleBtn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                         Ingredients
                                     </button>
                                 </h5>
@@ -64,26 +65,36 @@ var $mealDetail2 = `<div id="accordion">
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <button class="btn toggleBtn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Measurements
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                 <div class="card-body" id="measure">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Ingredient</th>
-                                                <th scope="col">Measure</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="measureTable">
-                                        </tbody>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12">
+                                            <table class="table table-striped table-sm measureTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Ingredient</th>
+                                                        <th scope="col">Measure</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="measureTable">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12">
+                                            <div id="mealImg" class="mealImg">
+                                            <img class="img-thumbnail">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </div>                           
                         </div>
+                        <div class="clear"></div>
                         <div id='modal' class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -98,7 +109,7 @@ var $mealDetail2 = `<div id="accordion">
                               </div>
                             </div>
                         </div>
-                        <div class="clear"></div>
+                        
                     </div>`;
 
 var $homePageContent = `<div class="row justify-content-lg-center">

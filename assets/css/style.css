@@ -3,6 +3,31 @@
     color:#ffffff;
 }
 
+.navbar-dark .navbar-nav .nav-link{
+    color: rgb(106,195,29);
+    font-weight: bold;
+}
+
+a img{
+    width: 3rem;
+    border-radius: 10px;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.navbar-dark .navbar-brand {
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: rgb(106,195,29);
+}
+
 h1{
     font-size:3.5rem;
     text-shadow: 0px 0px 8px rgb(22, 7, 7);
@@ -20,13 +45,21 @@ h4{
 }
 
 body{
-    background-image:url('../images/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; 
     height:100%;
 }
 
+
 html{
+    background-image:url('../images/background2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100%;
+}
+
+.background{
+    background-image:url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
     height:100%;
 }
 
@@ -36,22 +69,26 @@ html{
 
 .container{
     background-color: #ffffff;
-    margin-top: 4rem;
+    margin-top: 2rem;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 12px 1px #000000; 
     box-shadow: 0px 0px 12px 1px #000000;
 }
 
 .item{
-    padding:0.5rem;
-    background-color: rgb(106,195,29);
-    color:white;
+    padding:0.1rem;
+    /* background-color: rgb(106,195,29); */
+    color: rgb(106,195,29);
     text-align: center;
     font-weight: bold;
     font-size:1.5rem;
     border-radius: 15px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-header{
+    background: #f6f6f6;
 }
 
 .card-body{
@@ -67,7 +104,7 @@ html{
 }
 
 .clear{
-    height:2rem;
+    height:1rem;
 }
 
 .space{
@@ -81,4 +118,34 @@ html{
 
 .modal {
     height:600px;
+}
+
+.toggleBtn{
+    background: rgb(106,195,29);
+    width: 10rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.mb-0 > .btn{
+    margin-bottom: 0.2rem;
+    color:#ffffff;
+    border-radius: 40px;
+}
+
+.instr{
+    line-height: 1.5;
+    color:#8f9199;
+    letter-spacing:0.08rem;
+}
+
+.measureTable td{
+    color:#8f9199;
+    padding: 0.2rem;
+}
+
+.mealImg img{
+    width: 100%;
+    height:auto;
 }
