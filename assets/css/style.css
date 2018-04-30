@@ -13,6 +13,10 @@ a img{
     border-radius: 10px;
 }
 
+.img-thumbnail{
+    border: 3px solid rgb(106,195,29);
+}
+
 .hide{
     visibility: hidden;
 }
@@ -50,10 +54,11 @@ body{
 
 
 html{
-    background-image:url('../images/background2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image:url('../images/az_subtle_@2X.png');
+    /* background-repeat:no-repeat;
+    background-size: cover; */
     height:100%;
+    margin: 0;
 }
 
 .background{
@@ -61,6 +66,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover; 
     height:100%;
+    margin: 0;
 }
 
 .form-control{
