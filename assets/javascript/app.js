@@ -46,7 +46,7 @@ $(document).on('click', '#submit', function (e) {
 //if search is empty, display message
             } else {
                 $('.form-control').css('border', '1px solid red');
-                $('#input').attr('placeholder', 'Please enter a valid search term. Example: Chicken').css('color','red');
+                $('#input').attr('placeholder', 'Please enter a valid search term. Example: Chicken').val().css('color','red');
             }
             e.preventDefault();
         });
