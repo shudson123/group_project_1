@@ -1,6 +1,5 @@
 body {
     background-color: #000;
-    padding-top:80px;
   }
 
   .navbar{
@@ -10,7 +9,7 @@ body {
   .searchContent {
     z-index: 1;
     position: relative;
-    text-align: center;
+    padding-top: 40vh;
   }
 
   .searchContent h1 {
