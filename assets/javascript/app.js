@@ -11,6 +11,7 @@ $(document).on('click', '#submit', function (e) {
     e.preventDefault();
 //evaluate that search is not empty string
     if (term.length > 0) {
+        $('.form-control').css('border', '1px solid blue');
         $('#errorText').text('');
         // console.log(term);
 
@@ -50,6 +51,7 @@ $(document).on('click', '#submit', function (e) {
         });
 //if search is empty, display message
             } else {
+                $('.form-control').css('border', '1px solid red');
                 $('#errorText').text('Please enter a valid search term');
             }
             e.preventDefault();

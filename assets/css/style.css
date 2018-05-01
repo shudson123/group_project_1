@@ -57,8 +57,19 @@ h4{
     letter-spacing: 0.1rem;
 }
 
-body{
-    height:100%;
+.table-warning, .table-warning>td, .table-warning>th{
+    background: rgb(106,195,29);
+    letter-spacing: 0.1rem;
+}
+
+.table-warning, .table-warning>td, .table-warning>th:hover{
+    background: rgb(106,195,29);
+}
+
+body, html{
+   margin:0;
+   padding:0;
+   height:100%;
 }
 
 #mealTable{
@@ -84,12 +95,15 @@ body{
     border-radius: 50px;
 }
 
+
 .container{
     background-color: #ffffff;
     margin-top: 2rem;
+    margin-bottom: 7rem;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 12px 1px #000000; 
     box-shadow: 0px 0px 12px 1px #000000;
+    min-height:100%;
 }
 
 .item{
@@ -101,7 +115,7 @@ body{
     border-radius: 15px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0px 1px 0.5px #1C6EA4;
+    text-shadow: 0px 1px 0.2px rgb(5, 18, 27);
 }
 
 .card-header{
@@ -120,9 +134,6 @@ body{
     color: rgb(106,195,29);
 }
 
-.clear{
-    height:1rem;
-}
 
 .space{
     height:1rem;
@@ -171,19 +182,12 @@ body{
 .fixed-bottom{
     height: 80px;
     background: #666666;
-    text-align: center;
-    
+    text-align: center;   
 }
 
 .copyRight{
     margin: 25px auto;
     color: #cccccc;
-}
-
-.container::after{
-    content: "";
-    clear: both;
-    display: block;
 }
 
 .modal-title{
@@ -194,3 +198,8 @@ body{
     background: rgb(106,195,29);
     color:#ffffff;
 }
+
+.clear{
+    height: 2rem;
+}
+
