@@ -5,7 +5,7 @@ var $resultPage = `<div class="container" id="container">
                             <tr class="table-warning">
                                 <th scope="col">Meal</th>
                                 <th scope="col">Category</th>
-                                <th scope="col">Area</th>
+                                <th scope="col"><i class="fa fa-globe" aria-hidden="true"></i>Area</th>
                             </tr>
                         </thead>
                         <tbody id='mealTable'>
@@ -22,7 +22,7 @@ var $mealDetail = `<div class="row">
                             <div class="item" id="category"></div>
                          </div>
                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="item" id="area"></div>
+                            <div class="item" id="area"><i class="fa fa-globe" aria-hidden="true"></i></div>
                         </div>
                     </div>`;
 
@@ -126,7 +126,14 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                                     </form>
                                 </div>
                             </div>
-                        </div>`;
+                        </div>        
+                        <ul id ="backgroundUl" class="slideshow">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                      </ul>`;
 
 var $mealVideo =  `<iframe id="videoIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
 
