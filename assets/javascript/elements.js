@@ -1,7 +1,8 @@
 var $resultPage = `<div class="container" id="container">
-                       <table class="table table-hover">
+                    <div class="clear"></div>
+                       <table class="table table-hover table-bordered">
                         <thead>
-                            <tr>
+                            <tr class="table-warning">
                                 <th scope="col">Meal</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Area</th>
@@ -10,6 +11,7 @@ var $resultPage = `<div class="container" id="container">
                         <tbody id='mealTable'>
                         </tbody>
                     </table>
+                    <div class="clear"></div>
                 </div>`;
 
 var $mealDetail = `<div class="row">
@@ -113,11 +115,11 @@ var $mealDetail2 = `<div id="accordion" class="accordion">
 var $homePageContent = `<div class="row justify-content-lg-center">
                             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                                 <div class="searchContent text-center">
-                                    <h1 class"heading">Food For Thought</h1>
+                                    <h1 class"heading">ALIMENTUM</h1>
                                     <h4>This is Where Food is Life</h4>
                                     <form>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="input" placeholder="Search meals">
+                                            <input type="text" class="form-control invalidInput" id="input" placeholder="Search meals">
                                             <div class="space"><span class="error" id="errorText"></span></div>
                                         </div>
                                         <button id="submit" type="submit" class="btn btn-primary btn-lg">Search</button>
