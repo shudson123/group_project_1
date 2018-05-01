@@ -26,11 +26,11 @@ $(document).on('click', '#submit', function (e) {
             if (response.meals === null) {
                 //if meal not, found display message
                 $('#input').val('').focus();
-                $('#errorText').text('Oops we do not have such a meal');
+                $('#errorText').text('Oops! No meal matched your query.');
                 //if meal is found, generate result and display in table
                 } else {
                     // $('tbody').empty();
-                    $('body').removeClass('background');
+                    // $('body').removeClass('background');
                     $('body').addClass('secondBackground');
 
                     $('#majorContainer').empty();
@@ -51,7 +51,7 @@ $(document).on('click', '#submit', function (e) {
 //if search is empty, display message
             } else {
                 $('.form-control').css('border', '1px solid red');
-                $('#errorText').text('Please enter a valid search term');
+                $('#input').attr('placeholder', 'Please enter a valid search term').css('color','red');
             }
             e.preventDefault();
         });
@@ -111,13 +111,6 @@ $(document).on('click', '.index', function () {
         }
 });
 
-
-//this click even will get the text from the ingredient and pass it to the nutrition api
-$(document).on('click', '#ing', function () {
-    var term = $(this).text();
-    // console.log(term);
-});
-
 //open the instrctional video in a modal window
 $(document).on('click', '#video', function () {
     $('#modalBody').empty().append($mealVideo);
@@ -142,6 +135,8 @@ $('#home').click(function(){
     $('body').addClass('background');
     $('body').removeClass('secondBackground');
     $('#majorContainer').empty().append($homePageContent);
+    $('#input').attr('placeholder', 'Search meals');
+
 });
 
 
