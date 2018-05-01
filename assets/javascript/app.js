@@ -1,8 +1,6 @@
-var meal;
-var videoSource;
-var mealName;
-var photo;
-var source;
+// GLOBAL VERIABLES
+var meal, videoSource, mealName, photo, source, apiResponse, 
+area, inst, category, ingArray, meaArray, favMeal;
 
 
 //get text search field and pass it over to the meal api 
@@ -11,6 +9,7 @@ $(document).on('click', '#submit', function (e) {
     e.preventDefault();
 //evaluate that search is not empty string
     if (term.length > 0) {
+        $('.form-control').css('border', '1px solid blue');
         $('#errorText').text('');
         // console.log(term);
 
@@ -26,13 +25,10 @@ $(document).on('click', '#submit', function (e) {
             if (response.meals === null) {
                 //if meal not, found display message
                 $('#input').val('').focus();
-                $('#errorText').text('Oops we do not have such a meal');
+                $('#errorText').text('Oops! No meal matched your query.');
                 //if meal is found, generate result and display in table
                 } else {
-                    // $('tbody').empty();
-                    $('body').removeClass('background');
                     $('body').addClass('secondBackground');
-
                     $('#majorContainer').empty();
                     $('#majorContainer').append($resultPage);
     
@@ -50,7 +46,8 @@ $(document).on('click', '#submit', function (e) {
         });
 //if search is empty, display message
             } else {
-                $('#errorText').text('Please enter a valid search term');
+                $('.form-control').css('border', '1px solid red');
+                $('#input').attr('placeholder', 'Please enter a valid search term. Example: Chicken').val().css('color','red');
             }
             e.preventDefault();
         });
@@ -59,17 +56,17 @@ $(document).on('click', '#submit', function (e) {
 $(document).on('click', '.index', function () {
     var unit = $(this).attr('id');
     var detail = meal[unit];
-    var area = detail.strArea;
-    var inst = detail.strInstructions;
-    var category = detail.strCategory;
+    area = detail.strArea;
+    inst = detail.strInstructions;
     photo = detail.strMealThumb;
     source = detail.strSource;
     mealName = detail.strMeal;
+    category = detail.strCategory;
     videoSource = detail.strYoutube;
-      
+  
 //create empty array and if ingredient and mesurement are not an empty string, push into the array
-    var ingArray = [];
-    var meaArray = [];
+    ingArray = [];
+    meaArray = [];
     var keys = Object.keys(detail);
     keys.forEach(function(key){
     if( /strIngredient.*/.test(key) && detail[key] !== null && detail[key] !== ''){
@@ -79,6 +76,19 @@ $(document).on('click', '.index', function () {
         meaArray.push(detail[key]);
         }
     });
+
+    //add values to the favorite meal object 
+    favMeal = {
+        mealName: mealName, 
+        mealArea: area,
+        mealPhoto: photo,
+        mealVideo: videoSource,
+        mealSource: source,
+        mealCategory: category,
+        measurements: meaArray,
+        mealIngredients: ingArray,
+        mealInstructions: inst   
+    };
 
 //empty the container, add the meal details: name, category and area, 
     $('#container').empty();
@@ -110,13 +120,6 @@ $(document).on('click', '.index', function () {
         }
 });
 
-
-//this click even will get the text from the ingredient and pass it to the nutrition api
-$(document).on('click', '#ing', function () {
-    var term = $(this).text();
-    // console.log(term);
-});
-
 //open the instrctional video in a modal window
 $(document).on('click', '#video', function () {
     $('#modalBody').empty().append($mealVideo);
@@ -141,6 +144,7 @@ $('#home').click(function(){
     $('body').addClass('background');
     $('body').removeClass('secondBackground');
     $('#majorContainer').empty().append($homePageContent);
+    $('#input').attr('placeholder', 'Search meals');
 });
 
 

@@ -1,15 +1,17 @@
 var $resultPage = `<div class="container" id="container">
-                       <table class="table table-hover">
+                    <div class="clear"></div>
+                       <table class="table table-hover table-bordered">
                         <thead>
-                            <tr>
+                            <tr class="table-warning">
                                 <th scope="col">Meal</th>
                                 <th scope="col">Category</th>
-                                <th scope="col">Area</th>
+                                <th scope="col"><i class="fa fa-globe" aria-hidden="true"></i>Area</th>
                             </tr>
                         </thead>
                         <tbody id='mealTable'>
                         </tbody>
                     </table>
+                    <div class="clear"></div>
                 </div>`;
 
 var $mealDetail = `<div class="row">
@@ -20,7 +22,7 @@ var $mealDetail = `<div class="row">
                             <div class="item" id="category"></div>
                          </div>
                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="item" id="area"></div>
+                            <div class="item" id="area"><i class="fa fa-globe" aria-hidden="true"></i></div>
                         </div>
                     </div>`;
 
@@ -113,18 +115,25 @@ var $mealDetail2 = `<div id="accordion" class="accordion">
 var $homePageContent = `<div class="row justify-content-lg-center">
                             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                                 <div class="searchContent text-center">
-                                    <h1 class"heading">Food For Thought</h1>
+                                    <h1 class"heading">ALIMENTUM</h1>
                                     <h4>This is Where Food is Life</h4>
                                     <form>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="input" placeholder="Search meals">
+                                            <input type="text" class="form-control invalidInput" id="input" placeholder="Search meals">
                                             <div class="space"><span class="error" id="errorText"></span></div>
                                         </div>
                                         <button id="submit" type="submit" class="btn btn-primary btn-lg">Search</button>
                                     </form>
                                 </div>
                             </div>
-                        </div>`;
+                        </div>        
+                        <ul id ="backgroundUl" class="slideshow">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                      </ul>`;
 
 var $mealVideo =  `<iframe id="videoIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
 
