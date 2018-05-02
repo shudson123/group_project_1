@@ -90,6 +90,19 @@ body, html{
     cursor: pointer;
 }
 
+.mealThumbnail{
+    width: 0px;
+    height: auto;
+}
+
+.mealThumbnail:hover{
+    width: 60px;
+    height: auto;
+}
+.dropdown-item:hover{
+    cursor: pointer;
+}
+
 
 .secondBackground{
     background-image:url(../images/az_subtle_@2X.png); 
