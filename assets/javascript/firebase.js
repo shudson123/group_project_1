@@ -7,10 +7,11 @@ var config = {
     storageBucket: "food-for-thought-dc63a.appspot.com",
     messagingSenderId: "110594113089"
 };
+
+
 firebase.initializeApp(config);
-var database = firebase.database()
-var ref = database.ref('plate')
-//   ref.on('value', gotData);
+var database = firebase.database();
+
 
 //Push recipe into Firebase storage
 $(document).on('click', '#firebase', function () {
@@ -18,53 +19,55 @@ $(document).on('click', '#firebase', function () {
     database.ref().push(favMeal)
 });
 
-
-// At the initial load and subsequent value changes, get a snapshot of the stored data.
-// This function allows you to update your page in real-time when the firebase database changes.
-
-database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-
-console.log(childSnapshot.val());
+ 
 
 
-    var snapDetail = childSnapshot.val().detail;
-    var snapRole = childSnapshot.val().mealName;
-    var snapCategory = childSnapshot.val().category;
-    var snapArea = childSnapshot.val().area;
-    var snapInst = childSnapshot.val().inst;
-    var snapIngArray = childSnapshot.val().ingArray;
-    var snapMeaArray = childSnapshot.val().meaArray;
-    var snapPhoto = childSnapshot.val().photo;
-    var snapVideoSourse = childSnapshot.val().videoSource;
-
-}, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-});
-
-// --------------------------------------------------------------
-
-// Whenever a user clicks the submit-bid
-
-$("#myCollections").on("click", function (event) {
-    event.preventDefault();
-    // Get the input values
-
-    // $('tbody').empty();
-    $('#logo').addClass('hide');
-    $('body').removeClass('background');
-
-    $('#majorContainer').empty();
-    $('#majorContainer').append($resultPage, $mealDetail, $mealDetail2, $mealVideo);
 
 
-    for (var i = 0; i < meal.length; i++) {
 
-        var list = `<tr class='index' id='${[i]}'> 
-                                <td >${meal[i].strMeal}</td>
-                                <td>${meal[i].strCategory}</td>
-                                <td>${meal[i].strArea}</td>
-                             </tr>`;
-        $('#mealTable').append(list);
 
-    }
-});
+
+
+
+
+
+
+
+
+
+
+
+database.ref().on("child_added", function(childSnapshot) {
+    // console.log(childSnapshot.val().mealName);
+        // if (snapshot.child("mealName").exists() && snapshot.child("mealPhoto").exists()) {
+            var snapMeal = childSnapshot.val().mealName;
+            var snapPhoto = childSnapshot.val().mealPhoto;
+            // console.log(snapMeal);
+            // console.log(snapPhoto);
+        //     // var snapPhoto = snapshot.val().mealPhoto;
+        var list = `<span class="dropdown-item"> ${snapMeal}<img class=mealThumbnail src="${snapPhoto}"></span>`;
+        //    }
+        // console.log(list);
+        // $('#favList').empty();
+          $('#favList').prepend(list);
+
+
+        }, 
+      
+      function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+        
+
+      });
+
+
+
+// var snapDetail = childSnapshot.val().detail;
+// var snapRole = childSnapshot.val().mealName;
+// var snapCategory = childSnapshot.val().category;
+// var snapArea = childSnapshot.val().area;
+// var snapInst = childSnapshot.val().inst;
+// var snapIngArray = childSnapshot.val().ingArray;
+// var snapMeaArray = childSnapshot.val().meaArray;
+// var snapPhoto = childSnapshot.val().photo;
+// var snapVideoSourse = childSnapshot.val().videoSource;
