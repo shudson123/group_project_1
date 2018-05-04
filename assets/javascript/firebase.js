@@ -19,55 +19,16 @@ $(document).on('click', '#firebase', function () {
     database.ref().push(favMeal)
 });
 
- 
+//Retrieve all meals name and image 
+database.ref().on("child_added", function (childSnapshot) {
+    var snapMeal = childSnapshot.val().mealName;
+    var snapPhoto = childSnapshot.val().mealPhoto;
+    var list = `<span data-meal="${snapMeal}" class="dropdown-item text-truncate "><img class="mealThumbnail img-thumbnail" src="${snapPhoto}">${snapMeal}</span>`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-database.ref().on("child_added", function(childSnapshot) {
-    // console.log(childSnapshot.val().mealName);
-        // if (snapshot.child("mealName").exists() && snapshot.child("mealPhoto").exists()) {
-            var snapMeal = childSnapshot.val().mealName;
-            var snapPhoto = childSnapshot.val().mealPhoto;
-            // console.log(snapMeal);
-            // console.log(snapPhoto);
-        //     // var snapPhoto = snapshot.val().mealPhoto;
-        var list = `<span class="dropdown-item"> ${snapMeal}<img class=mealThumbnail src="${snapPhoto}"></span>`;
-        //    }
-        // console.log(list);
-        // $('#favList').empty();
-          $('#favList').prepend(list);
-
-
-        }, 
-      
-      function (errorObject) {
+    //Stops a recipe from repeating in the collection
+    if ($(`span[data-meal="${snapMeal}"]`).length > 0) return;
+    $('#favList').prepend(list);
+},
+    function (errorObject) {
         console.log("The read failed: " + errorObject.code);
-        
-
-      });
-
-
-
-// var snapDetail = childSnapshot.val().detail;
-// var snapRole = childSnapshot.val().mealName;
-// var snapCategory = childSnapshot.val().category;
-// var snapArea = childSnapshot.val().area;
-// var snapInst = childSnapshot.val().inst;
-// var snapIngArray = childSnapshot.val().ingArray;
-// var snapMeaArray = childSnapshot.val().meaArray;
-// var snapPhoto = childSnapshot.val().photo;
-// var snapVideoSourse = childSnapshot.val().videoSource;
+    });
