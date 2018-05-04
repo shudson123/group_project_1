@@ -138,7 +138,6 @@ $(document).on('click', '#ing', function () {
             $('#sugarAmount').empty().append(response.foods[0].nf_sugars.toFixed(2));
             $('#totalCarbohydrateAmount').empty().append(response.foods[0].nf_total_carbohydrate.toFixed(2));
             $('#totalFatAmount').empty().append(response.foods[0].nf_total_fat.toFixed(2));
-            console.log("This is "+(response.foods[0].nf_calories));
             
             console.log(gramEquation);
             $('#calHundredGram').empty().append((gramEquation*response.foods[0].nf_calories).toFixed(0));

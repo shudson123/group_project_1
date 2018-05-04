@@ -140,14 +140,15 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                                     </form>
                                 </div>
                             </div>
-                        </div>        
+                        </div>
                         <ul id ="backgroundUl" class="slideshow">
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
-                      </ul>`;
+                      </ul>`;        
+                        
 
 var $mealVideo =  `<iframe id="videoIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
 
