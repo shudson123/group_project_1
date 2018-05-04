@@ -2,9 +2,22 @@
 var meal, videoSource, mealName, photo, source, apiResponse, 
 area, inst, category, ingArray, meaArray, favMeal;
 
+window.addEventListener('popstate', function(event) {
+    // The popstate event is fired each time when the current history entry changes.
+
+        history.back();
+        // Uncomment below line to redirect to the previous page instead.
+         window.location = document.referrer // Note: IE11 is not supporting this.
+
+    history.pushState(null, null, window.location.pathname);
+
+}, false);
 
 //get text search field and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
+// $("form").on('submit', function (e) {
+    var stateObj= {abc:"1"}; 
+    window.history.pushState(stateObj, "title", "chad");
     var term = $('#input').val();
     e.preventDefault();
 //evaluate that search is not empty string
@@ -27,11 +40,11 @@ $(document).on('click', '#submit', function (e) {
                 $('#input').val('').focus();
                 $('#errorText').text('Oops! No meal matched your query.');
                 //if meal is found, generate result and display in table
-                } else {
+                } else {                    
                     $('body').addClass('secondBackground');
                     $('#majorContainer').empty();
                     $('#majorContainer').append($resultPage);
-    
+
                     meal = response.meals;
                     for (var i = 0; i < meal.length; i++) {
                         
