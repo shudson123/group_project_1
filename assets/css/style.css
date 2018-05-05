@@ -1,5 +1,4 @@
-
-
+/* nabar styles */
 .navbar-dark .navbar-nav .nav-link, .dropdown-toggle{
     color: rgb(106,195,29);
     font-weight: bold;
@@ -44,115 +43,98 @@ a img{
     color: rgb(106,195,29);
 }
 
-h1{
-    font-size:3.4rem;
-    text-shadow: 0px 0px 8px rgb(22, 7, 7);
-    letter-spacing: 0.3rem;
-}
 
-h4{
-    letter-spacing: 0.15rem;
-    color: #ffffff;
-}
-
-.btn-lg{
-    width:16rem;
-    border-radius: 50px;
-    letter-spacing: 0.1rem;
-    transition:0.3s all;
-    background: rgb(106,195,29);
-    outline: none;
-    border:none;
-    font-weight: bold;
-}
-
-.btn-lg:hover{
-    background: rgb(92, 173, 21);
-}
-
-
-.table-warning, .table-warning>td, .table-warning>th{
-    background: rgb(106,195,29);
-    letter-spacing: 0.1rem;
-}
-
-.table-warning, .table-warning>td, .table-warning>th:hover{
-    background: rgb(106,195,29);
-}
-
-body, html{
-   margin:0;
-   padding:0;
-   height:100%;
-}
-
-#mealTable{
-    cursor: pointer;
+.dropdown-item:hover .mealThumbnail{
+    width: 40px;
+    height: auto;
+	transition:0.2s linear;
+	opacity:1.0;
 }
 
 .mealThumbnail{
-    width: 0px;
-    height: auto;
+	margin-right:0.3rem;
+	width:0;
+	opacity:0;
 }
 
-.mealThumbnail:hover{
-    width: 60px;
-    height: auto;
-}
 .dropdown-item:hover{
+    background: rgb(106,195,29);
+    color:#ffffff;
     cursor: pointer;
 }
 
+.dropdown-item{
+    padding-left: 0;
+    display:inline-block;
+}
+
+.dropdown-item > .mealThumbnail{
+    border: 0;
+}
+
+
+#mealImgTop{
+    width:100%;
+    height:auto;
+}
 
 .secondBackground{
-    background-image:url(../images/az_subtle_@2X.png); 
-    height:100%;
-    margin: 0;
-    background-attachment: fixed;
+    background:#f0efef;  
+    background-attachment: fixed; 
 }
 
-.form-control{
-    border-radius: 50px;
-}
-
-.container{
-    background-color: #ffffff;
+ .container{
     margin-top: 6rem;
     margin-bottom: 7rem;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 12px 1px #000000; 
-    box-shadow: 0px 0px 12px 1px #000000;
     min-height:100%;
+    background:#ffffff;
+    border-radius: 5px;
+    padding-top:1rem;
+} 
+
+.hr {
+    border: 0;
+    height: 0.8px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
-.item{
-    padding:0.1rem;
-    color: #494949;
-    text-align: center;
-    font-weight: bold;
-    font-size:1.5rem;
-    border-radius: 15px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 0px 1px 0.2px rgb(5, 18, 27);
+
+.imageDiv .img-fluid{
+    transition:0.2s all;
+    border-radius: 5px;
 }
 
-.card-header{
-    background: #f6f6f6;
+.imageDiv .img-fluid:hover{
+    cursor: pointer;
+    opacity: 0.9;
+
 }
 
-.card-body{
-    background: rgb(235,242,249);
+.title{
+    font-size: 1rem;
+    font-family: 'IBM Plex Serif', serif;
+    transition:0.3s all;
+    border-left:1rem solid red;
+    padding-left: 1rem; 
 }
 
-.btn-success{
-    margin: 0.2rem;
-    width: 15rem;
-    background: #ffffff;
-    border: 1px solid rgb(106,195,29);
-    color: rgb(106,195,29);
+.title:hover{
+    cursor: pointer;
+    color: rgb(153, 245, 245);
+    padding-left: 1rem;
 }
 
+.category{
+    font-size: 1.5rem;
+    border-left:1rem solid red;
+    padding-left: 1rem; 
+}
+
+.region{
+    font-size: 3rem;
+    border-left:1rem solid red;
+    padding-left: 1rem; 
+}
 
 .space{
     height:1rem;
@@ -162,29 +144,39 @@ body, html{
     color:red;
 }
 
-
-.modal {
+/* modal style */
+.bd-example-modal-lg {
     height:600px;
 }
 
-.toggleBtn{
-    background: rgb(106,195,29);
-    width: 10rem;
-    text-transform: uppercase;
-    color: #ffffff;
-    font-weight: bold;
+.modal-sm{
+    height:300px;
 }
 
-.mb-0 > .btn{
-    margin-bottom: 0.2rem;
-    color:#ffffff;
-    border-radius: 40px;
+.modal-title{
+    color: rgb(106,195,29);
 }
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 50px;
+    margin-top:0.4rem;
+    width:14rem;
+    
+}
+
+#video{
+
+}
+
 
 .instr{
-    line-height: 1.5;
+    line-height: 1.6;
     color:#8f9199;
     letter-spacing:0.08rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .measureTable td{
@@ -197,7 +189,7 @@ body, html{
     height:auto;
 }
 
-
+/* sticky footer styles */
 .fixed-bottom{
     height: 70px;
     background: #666666;
@@ -209,16 +201,89 @@ body, html{
     color: #cccccc;
 }
 
-.modal-title{
-    color: rgb(106,195,29);
-}
 
-.dropdown-item:hover{
-    background: rgb(106,195,29);
-    color:#ffffff;
-}
+
+
 
 .clear{
     height: 2rem;
 }
 
+#title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    color: rgb(106,195,29);
+}
+
+.save{
+    width:100%;
+    height:auto;
+}
+
+
+.measure{
+    
+}
+
+#ingreDiv{
+background:rgb(251, 250, 250);
+}
+
+
+.ingredients__text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.ing{
+    border-top: 0.1rem solid #efe6e6;
+    border-bottom: 0.1rem solid #efe6e6;
+}
+
+.ing td{
+    padding: 0.1rem 1.5rem;
+}
+
+#nutr{
+    opacity: 0;
+    width: 0;
+}
+
+.ing:hover #nutr{
+transition:0.2s linear;
+width: 5rem;
+opacity:1.0;
+margin-right:0.2rem;
+}
+
+
+.mealItem{
+    cursor: pointer;
+    transition:0.2s all;
+}
+
+.mealItem:hover{
+    text-decoration: underline;
+    opacity: 0.8;
+    cursor: pointer;
+    transition:0.2s linear;
+}
+
+.headings{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #1a1818;
+}
+
+
+#instDiv p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    color:#575555;
+}
