@@ -4,16 +4,13 @@ area, inst, category, ingArray, meaArray, favMeal, term, tracker;
 
 window.addEventListener('popstate', function(event) {
     // The popstate event is fired each time when the current history entry changes.
-
         history.back();
         // Uncomment below line to redirect to the previous page instead.
          window.location = document.referrer // Note: IE11 is not supporting this.
-
          history.pushState({page: 1}, "title 1", "?page=1");
-
 }, false);
 
-//get text search field and pass it over to the meal api 
+//get text search field value and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
 
  e.preventDefault();
@@ -21,7 +18,7 @@ $(document).on('click', '#submit', function (e) {
     search();
 });
 
-//get text search field and pass it over to the meal api 
+//get text of the favorite item and pass it over to the meal api 
 $(document).on('click','.dropdown-item', function () {
     term = $(this).text();
     search();
@@ -34,7 +31,7 @@ function search (){
    history.pushState({page: 2}, "title 2", "?page=2");
     // var stateObj= {abc:"1"}; 
     // window.history.pushState(stateObj, "title", "chad");
-    var term = $('#input').val();
+    //var term = $('#input').val();
 //     e.preventDefault();
 //evaluate that search is not empty string
 
