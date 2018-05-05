@@ -146,10 +146,10 @@ $('body').on('hidden.bs.modal', '.modal', function () {
     $('#modalBody').empty();
 });
 
-// //add the source reference to the link
-//     $(document).on('click', '#sourceLink', function () {
-//     $('#sourceLink').attr('href', source);
-// });
+// add the source reference to the link
+    $(document).on('click', '#sourceLink', function () {
+    $(this).attr('href', source);
+});
 
 //user is taken back to the home page when the home button is clicked
 $('#home').click(function(){
