@@ -29,7 +29,7 @@ $(document).on('click','.dropdown-item', function () {
 
 function search (){
     //evaluate that search is not empty string
-=======
+
 // $("form").on('submit', function (e) {
    history.pushState({page: 2}, "title 2", "?page=2");
     // var stateObj= {abc:"1"}; 
