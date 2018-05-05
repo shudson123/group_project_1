@@ -70,7 +70,7 @@ var $headerDiv = `<div class="row">
                                 <div class="buttonDiv">
                                         <button class="btn btn-danger btn-lg justify-content-center" id="video" data-toggle="modal" data-target=".bd-example-modal-lg">Watch Video</button>
                                         <a class="btn btn-primary btn-lg justify-content-center" target="_blank" id="sourceLink">Learn More</a>
-                                        <button class="btn btn-primary btn-lg justify-content-center" id="firebase" data-toggle="modal" data-target=".bd-example-modal-sm">Add to Favorites</button>
+                                        <button class="btn btn-secondary btn-lg justify-content-center" id="firebase" data-toggle="modal" data-target=".bd-example-modal-sm">Add to Favorites</button>
                                 </div>
                           </div>
                       </div>
@@ -85,6 +85,7 @@ var $headerDiv = `<div class="row">
                       </div>
                       <div class="row">
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="tableDiv">
                                 <table>
                                     <thead>
                                         <tr>
@@ -96,6 +97,7 @@ var $headerDiv = `<div class="row">
                                     
                                     </tbody>
                                 </table>
+                            </div>
                           </div>
                       </div>
                   </div>
@@ -128,16 +130,14 @@ var $homePageContent = `<div class="row justify-content-lg-center">
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div>        
                         <ul id ="backgroundUl" class="slideshow">
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
-                      </ul>`;        
-                        
+                      </ul>`;
 
-var $mealVideo =  `<iframe id="videoIframe" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
-
+var $mealVideo = `<iframe id="videoIframe" class="embed-responsive-item" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
 
