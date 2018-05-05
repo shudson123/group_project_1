@@ -78,7 +78,7 @@ var $nutrientTable= `<table class="table table-sm">
 
 
 //this click event will get the text from the ingredient and pass it to the nutrition api
-$(document).on('click', '#ing', function () {
+$(document).on('click', '.mealItem', function () {
   var chosenIngredient = $(this).text();
 
   //open the nutrient table for ingredient in modal window
@@ -126,32 +126,106 @@ $(document).on('click', '#ing', function () {
             console.log(response);
             console.log(response.foods);
             $('#servingSize').empty().append("Per "+response.foods[0].serving_unit+" ("+response.foods[0].serving_weight_grams+" grams)");
-            
-            $('#calAmount').empty().append(response.foods[0].nf_calories.toFixed(0));
-            $('#cholesterolAmount').empty().append(response.foods[0].nf_cholesterol.toFixed(2));
-            $('#dietaryFiberAmount').empty().append(response.foods[0].nf_dietary_fiber.toFixed(2));
-            $('#phosphorusAmount').empty().append(response.foods[0].nf_p.toFixed(2));
-            $('#potassiumAmount').empty().append(response.foods[0].nf_potassium.toFixed(2));
-            $('#proteinAmount').empty().append(response.foods[0].nf_protein.toFixed(2));
-            $('#saturatedFatAmount').empty().append(response.foods[0].nf_saturated_fat.toFixed(2));
-            $('#sodiumAmount').empty().append(response.foods[0].nf_sodium.toFixed(2));
-            $('#sugarAmount').empty().append(response.foods[0].nf_sugars.toFixed(2));
-            $('#totalCarbohydrateAmount').empty().append(response.foods[0].nf_total_carbohydrate.toFixed(2));
-            $('#totalFatAmount').empty().append(response.foods[0].nf_total_fat.toFixed(2));
-            
-            console.log(gramEquation);
-            $('#calHundredGram').empty().append((gramEquation*response.foods[0].nf_calories).toFixed(0));
-            $('#cholesterolHundredGram').empty().append((gramEquation*response.foods[0].nf_cholesterol).toFixed(2));
-            $('#fiberHundredGram').empty().append((gramEquation*response.foods[0].nf_dietary_fiber).toFixed(2));
-            $('#phosphorusHundredGram').empty().append((gramEquation*response.foods[0].nf_p).toFixed(2));
-            $('#potassiumHundredGram').empty().append((gramEquation*response.foods[0].nf_potassium).toFixed(2));
-            $('#proteinHundredGram').empty().append((gramEquation*response.foods[0].nf_protein).toFixed(2));
-            $('#saturatedFatHundredGram').empty().append((gramEquation*response.foods[0].nf_saturated_fat).toFixed(2));
-            $('#sodiumHundredGram').empty().append((gramEquation*response.foods[0].nf_sodium).toFixed(2));
-            $('#sugarHundredGram').empty().append((gramEquation*response.foods[0].nf_sugars).toFixed(2));
-            $('#totalCarbohydrateHundredGram').empty().append((gramEquation*response.foods[0].nf_total_carbohydrate).toFixed(2));
-            $('#totalFatHundredGram').empty().append((gramEquation*response.foods[0].nf_total_fat).toFixed(2));
 
+              if (response.foods[0].nf_calories == null){
+                $('#calAmount').empty().append('0');
+                $('#calHundredGram').empty().append('0');
+              }
+              else{
+              $('#calAmount').empty().append(response.foods[0].nf_calories.toFixed(0));
+              $('#calHundredGram').empty().append((gramEquation*response.foods[0].nf_calories).toFixed(0));
+              }
+
+              if (response.foods[0].nf_cholesterol == null){
+                $('#cholesterolAmount').empty().append('0');
+                $('#cholesterolHundredGram').empty().append('0');
+              }
+              else{
+              $('#cholesterolAmount').empty().append(response.foods[0].nf_cholesterol.toFixed(0));
+              $('#cholesterolHundredGram').empty().append((gramEquation*response.foods[0].nf_cholesterol).toFixed(0));
+              }
+              
+              if (response.foods[0].nf_dietary_fiber == null){
+                $('#dietaryFiberAmount').empty().append('0');
+                $('#fiberHundredGram').empty().append('0');
+              }
+              else{
+              $('#dietaryFiberAmount').empty().append(response.foods[0].nf_dietary_fiber.toFixed(0));
+              $('#fiberHundredGram').empty().append((gramEquation*response.foods[0].nf_dietary_fiber).toFixed(0));
+              }
+              
+              if (response.foods[0].nf_p == null){
+                $('#phosphorusAmount').empty().append('0');
+                $('#phosphorusHundredGram').empty().append('0');
+              }
+              else{
+              $('#phosphorusAmount').empty().append(response.foods[0].nf_p.toFixed(2));
+              $('#phosphorusHundredGram').empty().append((gramEquation*response.foods[0].nf_p).toFixed(2));
+              }
+              
+              if (response.foods[0].nf_potassium == null){
+                $('#potassiumAmount').empty().append('0');
+                $('#potassiumHundredGram').empty().append('0');
+              }
+              else{
+              $('#potassiumAmount').empty().append(response.foods[0].nf_potassium.toFixed(2));
+              $('#potassiumHundredGram').empty().append((gramEquation*response.foods[0].nf_potassium).toFixed(2));
+              }
+
+              if (response.foods[0].nf_protein == null){
+                $('#proteinAmount').empty().append('0');
+                $('#proteinHundredGram').empty().append('0');
+              }
+              else{
+              $('#proteinAmount').empty().append(response.foods[0].nf_protein.toFixed(2));
+              $('#proteinHundredGram').empty().append((gramEquation*response.foods[0].nf_protein).toFixed(2));
+              }
+
+              if (response.foods[0].nf_saturated_fat == null){
+                $('#saturatedFatAmount').empty().append('0');
+                $('#saturatedFatHundredGram').empty().append('0');
+              }
+              else{
+              $('#saturatedFatAmount').empty().append(response.foods[0].nf_saturated_fat.toFixed(2));
+              $('#saturatedFatHundredGram').empty().append((gramEquation*response.foods[0].nf_saturated_fat).toFixed(2));
+              }
+
+              if (response.foods[0].nf_sodium == null){
+                $('#sodiumAmount').empty().append('0');
+                $('#sodiumHundredGram').empty().append('0');
+              }
+              else{
+              $('#sodiumAmount').empty().append(response.foods[0].nf_sodium.toFixed(2));
+              $('#sodiumHundredGram').empty().append((gramEquation*response.foods[0].nf_sodium).toFixed(2));
+              }
+
+              if (response.foods[0].nf_sugars == null){
+                $('#sugarAmount').empty().append('0');
+                $('#sugarHundredGram').empty().append('0');
+              }
+              else{
+              $('#sugarAmount').empty().append(response.foods[0].nf_sugars.toFixed(2));
+              $('#sugarHundredGram').empty().append((gramEquation*response.foods[0].nf_sugars).toFixed(2));
+              }
+
+              if (response.foods[0].nf_total_carbohydrate == null){
+                $('#totalCarbohydrateAmount').empty().append('0');
+                $('#totalCarbohydrateHundredGram').empty().append('0');
+              }
+              else{
+              $('#totalCarbohydrateAmount').empty().append(response.foods[0].nf_total_carbohydrate.toFixed(2));
+              $('#totalCarbohydrateHundredGram').empty().append((gramEquation*response.foods[0].nf_total_carbohydrate).toFixed(2));
+              }
+
+
+              if (response.foods[0].nf_total_fat == null){
+                $('#totalFatAmount').empty().append('0');
+                $('#totalFatHundredGram').empty().append('0');
+              }
+              else{
+              $('#totalFatAmount').empty().append(response.foods[0].nf_total_fat.toFixed(2));
+              $('#totalFatHundredGram').empty().append((gramEquation*response.foods[0].nf_total_fat).toFixed(2));
+              }
            })
 
       })
