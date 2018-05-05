@@ -27,10 +27,6 @@ a img{
     border: 3px solid rgb(106,195,29);
 }
 
-.hide{
-    visibility: hidden;
-}
-
 .navbar-dark .navbar-brand {
     color: white;
     font-weight: bolder;
@@ -42,7 +38,6 @@ a img{
 .navbar-dark .navbar-brand:hover {
     color: rgb(106,195,29);
 }
-
 
 .dropdown-item:hover .mealThumbnail{
     width: 40px;
@@ -98,16 +93,15 @@ a img{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
-
 .imageDiv .img-fluid{
     transition:0.2s all;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .imageDiv .img-fluid:hover{
     cursor: pointer;
     opacity: 0.9;
-
 }
 
 .title{
@@ -116,11 +110,12 @@ a img{
     transition:0.3s all;
     border-left:1rem solid red;
     padding-left: 1rem; 
+    text-shadow: 1px 2px 5px rgba(28,110,164,0.35);
 }
 
 .title:hover{
     cursor: pointer;
-    color: rgb(153, 245, 245);
+    color: rgb(120, 235, 235);
     padding-left: 1rem;
 }
 
@@ -163,14 +158,8 @@ a img{
     line-height: 1.5;
     border-radius: 50px;
     margin-top:0.4rem;
-    width:14rem;
-    
+    width:14rem;  
 }
-
-#video{
-
-}
-
 
 .instr{
     line-height: 1.6;
@@ -182,6 +171,7 @@ a img{
 .measureTable td{
     color:#8f9199;
     padding: 0.2rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .mealImg img{
@@ -201,10 +191,6 @@ a img{
     color: #cccccc;
 }
 
-
-
-
-
 .clear{
     height: 2rem;
 }
@@ -216,14 +202,14 @@ a img{
     color: rgb(106,195,29);
 }
 
+.tableDiv{
+    -webkit-box-shadow: -11px 12px 50px 0px rgba(0,0,0,0.29); 
+box-shadow: -11px 12px 50px 0px rgba(0,0,0,0.29);
+}
+
 .save{
     width:100%;
     height:auto;
-}
-
-
-.measure{
-    
 }
 
 #ingreDiv{
@@ -275,7 +261,7 @@ margin-right:0.2rem;
 .headings{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
-    color: #1a1818;
+    color: #363636;
 }
 
 
