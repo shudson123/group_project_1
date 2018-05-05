@@ -14,60 +14,60 @@ var $nutrientTable= `<table class="table table-sm">
     <td id = "calHundredGram"></td>
   </tr>
   <tr>
-    <th scope="row">Cholesterol</th>
+    <th scope="row">Cholesterol (mg)</th>
     <td id = "cholesterolAmount"></td>
     <td id = "cholesterolHundredGram"></td>
   </tr>
   <tr>
-    <th scope="row">Dietary Fiber</th>
+    <th scope="row">Dietary Fiber (g)</th>
     <td id = "dietaryFiberAmount"></td>
     <td id = "fiberHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Phosphorus</th>
+    <th scope="row">Phosphorus (mg)</th>
     <td id = "phosphorusAmount"></td>
     <td id = "phosphorusHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Potassium</th>
+    <th scope="row">Potassium (mg)</th>
     <td id = "potassiumAmount"></td>
     <td id = "potassiumHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Protein</th>
+    <th scope="row">Protein (g)</th>
     <td id = "proteinAmount"></td>
     <td id = "proteinHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Saturated Fat</th>
+    <th scope="row">Saturated Fat (g)</th>
     <td id = "saturatedFatAmount"></td>
     <td id = "saturatedFatHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Sodium</th>
+    <th scope="row">Sodium (mg)</th>
     <td id = "sodiumAmount"></td>
     <td id = "sodiumHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Sugar</th>
+    <th scope="row">Sugar (g)</th>
     <td id = "sugarAmount"></td>
     <td id = "sugarHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Total Carbohydrate</th>
+    <th scope="row">Total Carbohydrate (g)</th>
     <td id = "totalCarbohydrateAmount"></td>
     <td id = "totalCarbohydrateHundredGram"></td>
     
   </tr>
   <tr>
-    <th scope="row">Total Fat</th>
+    <th scope="row">Total Fat (g)</th>
     <td id = "totalFatAmount"></td>
     <td id = "totalFatHundredGram"></td>
     
