@@ -26,28 +26,27 @@ var $resultPage = `<div class="row">
 
 var $page = `<div class="container" id="container"></div>
                  <div id='modal' class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                     <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                           <div class="modal-header">
-                               <h5 class="modal-title" id="exampleModalLabel"></h5>
-                               <button id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <div>
-                            <div class="modal-body"  id="modalBody">
-                         </div>
-                     </div>
-                 </div>
-                 </div>   
-                 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                   <div class="modal-dialog modal-sm">
-                       <div class="modal-content">
-                           <button type="button" class="btn btn-success" data-dismiss="modal">Meal Has Been Added!</button>   
-                               <div id=""saveMessage>
-                                   <img class="save" src="assets/images/save.gif">
-                               </div>
-                           </div>
-                         </div>
-                      </div>
-                 </div>`;
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body" id="modalBody">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Meal Has Been Added!</button>
+                            <div id="" saveMessage>
+                                <img class="save" src="assets/images/save.gif">
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
 
 var $headerDiv = `<div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xm-12">  
