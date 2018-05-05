@@ -35,7 +35,7 @@ function search (){
     // var stateObj= {abc:"1"}; 
     // window.history.pushState(stateObj, "title", "chad");
     var term = $('#input').val();
-    e.preventDefault();
+//     e.preventDefault();
 //evaluate that search is not empty string
 
     if (term.length > 0) {
