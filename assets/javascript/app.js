@@ -117,6 +117,7 @@ $(document).on('click', '.index', function () {
     $('#title').text(mealName);
     $('#category').text(category);
     $('#area').text(area);
+    $('#sourceLink').attr('href', source);
   
 //add ingredients and measurement 
     for (var k = 0; k < ingArray.length && k < meaArray.length; k++) {
@@ -145,10 +146,10 @@ $('body').on('hidden.bs.modal', '.modal', function () {
     $('#modalBody').empty();
 });
 
-//add the source reference to the link
-    $(document).on('click', '#sourceLink', function () {
-    $('#sourceLink').attr('href', source);
-});
+// //add the source reference to the link
+//     $(document).on('click', '#sourceLink', function () {
+//     $('#sourceLink').attr('href', source);
+// });
 
 //user is taken back to the home page when the home button is clicked
 $('#home').click(function(){
