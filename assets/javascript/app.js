@@ -1,6 +1,6 @@
 // GLOBAL VERIABLES
-var meal, videoSource, mealName, photo, source, apiResponse, 
-area, inst, category, ingArray, meaArray, favMeal;
+var meal, videoSource, mealName, photo, source,
+area, inst, category, ingArray, meaArray, favMeal, term, tracker;
 
 window.addEventListener('popstate', function(event) {
     // The popstate event is fired each time when the current history entry changes.
@@ -15,6 +15,21 @@ window.addEventListener('popstate', function(event) {
 
 //get text search field and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
+
+ e.preventDefault();
+    term = $('#input').val();
+    search();
+});
+
+//get text search field and pass it over to the meal api 
+$(document).on('click','.dropdown-item', function () {
+    term = $(this).text();
+    search();
+});
+
+function search (){
+    //evaluate that search is not empty string
+=======
 // $("form").on('submit', function (e) {
    history.pushState({page: 2}, "title 2", "?page=2");
     // var stateObj= {abc:"1"}; 
@@ -22,11 +37,9 @@ $(document).on('click', '#submit', function (e) {
     var term = $('#input').val();
     e.preventDefault();
 //evaluate that search is not empty string
-    if (term.length > 0) {
-        $('.form-control').css('border', '1px solid blue');
-        $('#errorText').text('');
-        // console.log(term);
 
+    if (term.length > 0) {
+        $('#errorText').text('');
         var settings = {
             "url": "https://www.themealdb.com/api/json/v1/1/search.php?s=" + term,
             "method": "GET",
@@ -39,32 +52,28 @@ $(document).on('click', '#submit', function (e) {
             if (response.meals === null) {
                 //if meal not, found display message
                 $('#input').val('').focus();
-                $('#errorText').text('Oops! No meal matched your query.');
+                $('#input').attr('placeholder', 'Oops! your search does not match anything.');
                 //if meal is found, generate result and display in table
                 } else {                    
                     $('body').addClass('secondBackground');
                     $('#majorContainer').empty();
-                    $('#majorContainer').append($resultPage);
-
+                    $('#majorContainer').append($page);
                     meal = response.meals;
                     for (var i = 0; i < meal.length; i++) {
-                        
-                         var list = `<tr class='index' id='${[i]}'> 
-                                        <td >${meal[i].strMeal}</td>
-                                        <td>${meal[i].strCategory}</td>
-                                        <td>${meal[i].strArea}</td>
-                                     </tr>`;
-                        $('#mealTable').append(list);
+                        $('#container').prepend($resultPage);
+                         $('#resultImage').attr({'src': meal[i].strMealThumb, 'id':[i]});
+                         $('#titleName').text(meal[i].strMeal).attr('id',[i]);
+                         $('#category').text(meal[i].strCategory);
+                         $('#region').text(meal[i].strArea);
                     }
                 }
         });
-//if search is empty, display message
-            } else {
-                $('.form-control').css('border', '1px solid red');
-                $('#input').attr('placeholder', 'Please enter a valid search term. Example: Chicken').val().css('color','red');
-            }
-            e.preventDefault();
-        });
+    //if search is empty, display message    
+    } else {
+        $('.form-control').css('border', '1px solid red');
+        $('#input').attr('placeholder', 'Please enter a valid search value');
+    }
+}
 
 //get the individual meal 
 $(document).on('click', '.index', function () {
@@ -105,33 +114,25 @@ $(document).on('click', '.index', function () {
         mealInstructions: inst   
     };
 
-//empty the container, add the meal details: name, category and area, 
+//empty the container, add the meal details: name, category and area and instructions, 
     $('#container').empty();
-    $('#container').append($mealDetail);
+    $('#container').append($headerDiv);
+    $('.headerImage').attr('src', photo);
+    $('#container').append($instDiv);
+    $('.instructions').text(detail.strInstructions);
     $('#title').text(mealName);
     $('#category').text(category);
     $('#area').text(area);
-    $('#container').append($mealDetail2);
-    $('#instr').text(detail.strInstructions);
-
-
-// create the ingredient table
-    $('#ingTable').empty();
-    ingArray.forEach(function(ing1){
-        var ingred = ing1.charAt(0).toUpperCase() + ing1.toLowerCase().slice(1);
-        var ingre = `<button class="btn btn-success" id="ing" data-toggle="modal" data-target=".bd-example-modal-lg">${ingred}</button>`;
-        $('#ingre').append(ingre);
-    });
-    
-//add photo, ingredients and measurement 
-    $('#mealImg img').attr('src', photo);
+  
+//add ingredients and measurement 
     for (var k = 0; k < ingArray.length && k < meaArray.length; k++) {
         var meaIng = ingArray[k].charAt(0).toUpperCase() + ingArray[k].toLowerCase().slice(1);
-        var measure = `<tr>
-                         <td class="meaItem">${meaIng}</td>
-                         <td class="meaItem">${meaArray[k]}</td>
-                      </tr>`;
-        $('#measureTable').append(measure);  
+        var meas = meaArray[k];
+        var line = `<tr class=" ing ingredients__text">
+                        <td>${meas }</td>
+                        <td class="mealItem" data-toggle="modal" data-target=".bd-example-modal-lg">${meaIng}</td>
+                    </tr>`; 
+        $('#ingredientsTable').append(line); 
         }
 });
 
@@ -141,6 +142,7 @@ $(document).on('click', '#video', function () {
     $('#exampleModalLabel').text('Instructional Video for ' + mealName);
     var videoID = videoSource.split('v=', 2)[1];
     $('#videoIframe').attr('src', `https://www.youtube.com/embed/${videoID}?autoplay=1`);
+    $('#modalBody').append($mealVideo);
 });
 
 //remove all content from the modal when it is closed
@@ -150,7 +152,7 @@ $('body').on('hidden.bs.modal', '.modal', function () {
 });
 
 //add the source reference to the link
-$(document).on('click', '#sourceLink', function () {
+    $(document).on('click', '#sourceLink', function () {
     $('#sourceLink').attr('href', source);
 });
 
