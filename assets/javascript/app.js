@@ -4,22 +4,35 @@ area, inst, category, ingArray, meaArray, favMeal;
 
 window.addEventListener('popstate', function(event) {
     // The popstate event is fired each time when the current history entry changes.
-
         history.back();
-        
-         window.location = document.referrer
-
-    history.pushState(null, null, window.location.pathname);
-
+        // Uncomment below line to redirect to the previous page instead.
+         window.location = document.referrer // Note: IE11 is not supporting this.
+         history.pushState({page: 1}, "title 1", "?page=1");
 }, false);
 
-//get text search field and pass it over to the meal api 
+//get text search field value and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
 
-    var stateObj= {abc:"1"}; 
-    window.history.pushState(stateObj, "title", "chad");
-    var term = $('#input').val();
-    e.preventDefault();
+ e.preventDefault();
+    term = $('#input').val();
+    search();
+});
+
+//get text of the favorite item and pass it over to the meal api 
+$(document).on('click','.dropdown-item', function () {
+    term = $(this).text();
+    search();
+});
+
+function search (){
+    //evaluate that search is not empty string
+
+// $("form").on('submit', function (e) {
+   history.pushState({page: 2}, "title 2", "?page=2");
+    // var stateObj= {abc:"1"}; 
+    // window.history.pushState(stateObj, "title", "chad");
+    //var term = $('#input').val();
+//     e.preventDefault();
 //evaluate that search is not empty string
     if (term.length > 0) {
         $('.form-control').css('border', '1px solid blue');
@@ -63,7 +76,7 @@ $(document).on('click', '#submit', function (e) {
                 $('#input').attr('placeholder', 'Please enter a valid search term. Example: Chicken').val().css('color','red');
             }
             e.preventDefault();
-        });
+        };
 
 //get the individual meal 
 $(document).on('click', '.index', function () {
