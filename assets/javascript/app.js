@@ -2,9 +2,20 @@
 var meal, videoSource, mealName, photo, source,
 area, inst, category, ingArray, meaArray, favMeal, term, tracker;
 
+window.addEventListener('popstate', function(event) {
+    // The popstate event is fired each time when the current history entry changes.
+
+        history.back();
+        // Uncomment below line to redirect to the previous page instead.
+         window.location = document.referrer // Note: IE11 is not supporting this.
+
+         history.pushState({page: 1}, "title 1", "?page=1");
+
+}, false);
 
 //get text search field and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
+
  e.preventDefault();
     term = $('#input').val();
     search();
@@ -18,6 +29,15 @@ $(document).on('click','.dropdown-item', function () {
 
 function search (){
     //evaluate that search is not empty string
+=======
+// $("form").on('submit', function (e) {
+   history.pushState({page: 2}, "title 2", "?page=2");
+    // var stateObj= {abc:"1"}; 
+    // window.history.pushState(stateObj, "title", "chad");
+    var term = $('#input').val();
+    e.preventDefault();
+//evaluate that search is not empty string
+
     if (term.length > 0) {
         $('#errorText').text('');
         var settings = {
@@ -27,13 +47,14 @@ function search (){
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            console.log(response.meals[0].strMeasure1);
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
                 //if meal not, found display message
                 $('#input').val('').focus();
                 $('#input').attr('placeholder', 'Oops! your search does not match anything.');
                 //if meal is found, generate result and display in table
-                } else {
+                } else {                    
                     $('body').addClass('secondBackground');
                     $('#majorContainer').empty();
                     $('#majorContainer').append($page);
@@ -56,6 +77,7 @@ function search (){
 
 //get the individual meal 
 $(document).on('click', '.index', function () {
+    
     var unit = $(this).attr('id');
     var detail = meal[unit];
     area = detail.strArea;
