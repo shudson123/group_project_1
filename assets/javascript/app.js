@@ -40,12 +40,12 @@ function search (){
             };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
-            console.log(response.meals[0].strMeasure1);
+//             console.log(response);
+//             console.log(response.meals[0].strMeasure1);
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
-                //if meal not, found display message
-                $('#input').val('').focus();
+                //if meal not found, display message
+//                 $('#input').val('').focus();
                 $('#input').attr('placeholder', 'Oops! your search does not match anything.');
                 //if meal is found, generate result and display in table
                 } else {                    
