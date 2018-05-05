@@ -45,7 +45,7 @@ function search (){
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
                 //if meal not found, display message
-//                 $('#input').val('').focus();
+                $('#input').val('').focus();
                 $('#input').attr('placeholder', 'Oops! your search does not match anything.');
                 //if meal is found, generate result and display in table
                 } else {                    
