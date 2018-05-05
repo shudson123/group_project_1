@@ -1,45 +1,31 @@
 // GLOBAL VERIABLES
-var meal, videoSource, mealName, photo, source,
-area, inst, category, ingArray, meaArray, favMeal, term, tracker;
+var meal, videoSource, mealName, photo, source, apiResponse, 
+area, inst, category, ingArray, meaArray, favMeal;
 
 window.addEventListener('popstate', function(event) {
     // The popstate event is fired each time when the current history entry changes.
 
         history.back();
-        // Uncomment below line to redirect to the previous page instead.
-         window.location = document.referrer // Note: IE11 is not supporting this.
+        
+         window.location = document.referrer
 
-         history.pushState({page: 1}, "title 1", "?page=1");
+    history.pushState(null, null, window.location.pathname);
 
 }, false);
 
 //get text search field and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
 
- e.preventDefault();
-    term = $('#input').val();
-    search();
-});
-
-//get text search field and pass it over to the meal api 
-$(document).on('click','.dropdown-item', function () {
-    term = $(this).text();
-    search();
-});
-
-function search (){
-    //evaluate that search is not empty string
-
-// $("form").on('submit', function (e) {
-   history.pushState({page: 2}, "title 2", "?page=2");
-    // var stateObj= {abc:"1"}; 
-    // window.history.pushState(stateObj, "title", "chad");
+    var stateObj= {abc:"1"}; 
+    window.history.pushState(stateObj, "title", "chad");
     var term = $('#input').val();
-//     e.preventDefault();
+    e.preventDefault();
 //evaluate that search is not empty string
-
     if (term.length > 0) {
+        $('.form-control').css('border', '1px solid blue');
         $('#errorText').text('');
+        // console.log(term);
+
         var settings = {
             "url": "https://www.themealdb.com/api/json/v1/1/search.php?s=" + term,
             "method": "GET",
@@ -52,32 +38,35 @@ function search (){
             if (response.meals === null) {
                 //if meal not, found display message
                 $('#input').val('').focus();
-                $('#input').attr('placeholder', 'Oops! your search does not match anything.');
+                $('#errorText').text('Oops! No meal matched your query.');
                 //if meal is found, generate result and display in table
                 } else {                    
                     $('body').addClass('secondBackground');
                     $('#majorContainer').empty();
-                    $('#majorContainer').append($page);
+                    $('#majorContainer').append($resultPage);
+
                     meal = response.meals;
                     for (var i = 0; i < meal.length; i++) {
-                        $('#container').prepend($resultPage);
-                         $('#resultImage').attr({'src': meal[i].strMealThumb, 'id':[i]});
-                         $('#titleName').text(meal[i].strMeal).attr('id',[i]);
-                         $('#category').text(meal[i].strCategory);
-                         $('#region').text(meal[i].strArea);
+                        
+                         var list = `<tr class='index' id='${[i]}'> 
+                                        <td >${meal[i].strMeal}</td>
+                                        <td>${meal[i].strCategory}</td>
+                                        <td>${meal[i].strArea}</td>
+                                     </tr>`;
+                        $('#mealTable').append(list);
                     }
                 }
         });
-    //if search is empty, display message    
-    } else {
-        $('.form-control').css('border', '1px solid red');
-        $('#input').attr('placeholder', 'Please enter a valid search value');
-    }
-}
+//if search is empty, display message
+            } else {
+                $('.form-control').css('border', '1px solid red');
+                $('#input').attr('placeholder', 'Please enter a valid search term. Example: Chicken').val().css('color','red');
+            }
+            e.preventDefault();
+        });
 
 //get the individual meal 
 $(document).on('click', '.index', function () {
-    
     var unit = $(this).attr('id');
     var detail = meal[unit];
     area = detail.strArea;
@@ -114,25 +103,33 @@ $(document).on('click', '.index', function () {
         mealInstructions: inst   
     };
 
-//empty the container, add the meal details: name, category and area and instructions, 
+//empty the container, add the meal details: name, category and area, 
     $('#container').empty();
-    $('#container').append($headerDiv);
-    $('.headerImage').attr('src', photo);
-    $('#container').append($instDiv);
-    $('.instructions').text(detail.strInstructions);
+    $('#container').append($mealDetail);
     $('#title').text(mealName);
     $('#category').text(category);
     $('#area').text(area);
-  
-//add ingredients and measurement 
+    $('#container').append($mealDetail2);
+    $('#instr').text(detail.strInstructions);
+
+
+// create the ingredient table
+    $('#ingTable').empty();
+    ingArray.forEach(function(ing1){
+        var ingred = ing1.charAt(0).toUpperCase() + ing1.toLowerCase().slice(1);
+        var ingre = `<button class="btn btn-success" id="ing" data-toggle="modal" data-target=".bd-example-modal-lg">${ingred}</button>`;
+        $('#ingre').append(ingre);
+    });
+    
+//add photo, ingredients and measurement 
+    $('#mealImg img').attr('src', photo);
     for (var k = 0; k < ingArray.length && k < meaArray.length; k++) {
         var meaIng = ingArray[k].charAt(0).toUpperCase() + ingArray[k].toLowerCase().slice(1);
-        var meas = meaArray[k];
-        var line = `<tr class=" ing ingredients__text">
-                        <td>${meas }</td>
-                        <td class="mealItem" data-toggle="modal" data-target=".bd-example-modal-lg">${meaIng}</td>
-                    </tr>`; 
-        $('#ingredientsTable').append(line); 
+        var measure = `<tr>
+                         <td class="meaItem">${meaIng}</td>
+                         <td class="meaItem">${meaArray[k]}</td>
+                      </tr>`;
+        $('#measureTable').append(measure);  
         }
 });
 
@@ -142,7 +139,6 @@ $(document).on('click', '#video', function () {
     $('#exampleModalLabel').text('Instructional Video for ' + mealName);
     var videoID = videoSource.split('v=', 2)[1];
     $('#videoIframe').attr('src', `https://www.youtube.com/embed/${videoID}?autoplay=1`);
-    $('#modalBody').append($mealVideo);
 });
 
 //remove all content from the modal when it is closed
@@ -152,7 +148,7 @@ $('body').on('hidden.bs.modal', '.modal', function () {
 });
 
 //add the source reference to the link
-    $(document).on('click', '#sourceLink', function () {
+$(document).on('click', '#sourceLink', function () {
     $('#sourceLink').attr('href', source);
 });
 
