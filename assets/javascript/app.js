@@ -5,8 +5,7 @@ area, inst, category, ingArray, meaArray, favMeal;
 window.addEventListener('popstate', function(event) {
     // The popstate event is fired each time when the current history entry changes.
         history.back();
-        // Uncomment below line to redirect to the previous page instead.
-         window.location = document.referrer // Note: IE11 is not supporting this.
+         window.location = document.referrer 
          history.pushState({page: 1}, "title 1", "?page=1");
 }, false);
 
@@ -27,12 +26,9 @@ $(document).on('click','.dropdown-item', function () {
 function search (){
     //evaluate that search is not empty string
 
-// $("form").on('submit', function (e) {
+
    history.pushState({page: 2}, "title 2", "?page=2");
-    // var stateObj= {abc:"1"}; 
-    // window.history.pushState(stateObj, "title", "chad");
-    //var term = $('#input').val();
-//     e.preventDefault();
+
 //evaluate that search is not empty string
     if (term.length > 0) {
         $('.form-control').css('border', '1px solid blue');
