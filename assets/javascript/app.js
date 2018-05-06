@@ -12,7 +12,6 @@ window.addEventListener('popstate', function(event) {
 
 //get text search field value and pass it over to the meal api 
 $(document).on('click', '#submit', function (e) {
-
  e.preventDefault();
     term = $('#input').val();
     search();
@@ -40,8 +39,6 @@ function search (){
             };
 
         $.ajax(settings).done(function (response) {
-//             console.log(response);
-//             console.log(response.meals[0].strMeasure1);
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
                 //if meal not found, display message
@@ -82,7 +79,7 @@ $(document).on('click', '.index', function () {
     category = detail.strCategory;
     videoSource = detail.strYoutube;
   
-//create empty array and if ingredient and mesurement are not an empty string, push into the array
+//create empty array and if ingredient and mesurement are not an empty string, push into the arrays
     ingArray = [];
     meaArray = [];
     var keys = Object.keys(detail);
@@ -140,7 +137,7 @@ $(document).on('click', '#video', function () {
     // $('#modalBody').append($mealVideo);
 });
 
-//remove all content from the modal when it is closed
+//remove all content from the modal and when it is closed
 $('body').on('hidden.bs.modal', '.modal', function () {
     $('#modalBody').empty();
     $('#exampleModalLabel').text('');
