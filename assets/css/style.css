@@ -243,6 +243,168 @@ background:rgb(251, 250, 250);
 
 .ingredients__text {
     font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.ingredientsTable{
+    width:100%;
+}
+
+
+.ing{
+    border-top: 0.1rem solid #efe6e6;
+    border-bottom: 0.1rem solid #efe6e6;
+}
+
+.ing td{
+    padding: 0.1rem 1.5rem;
+}
+
+#nutr{
+    opacity: 0;
+    width: 0;
+}
+
+.ing:hover #nutr{
+transition:0.2s linear;
+width: 5rem;
+opacity:1.0;
+margin-right:0.2rem;
+}
+
+
+.mealItem{
+    cursor: pointer;
+    transition:0.2s all;
+}
+
+.mealItem:hover{
+    text-decoration: underline;
+    opacity: 0.8;
+    cursor: pointer;
+    transition:0.2s linear;
+}
+
+.headings{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #363636;
+}
+
+
+#instDiv p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    color:#575555;
+}/* modal style */
+.bd-example-modal-lg {
+    height:600px;
+}
+
+.modal-sm{
+    height:300px;
+}
+
+.modal-title{
+    color: rgb(247, 248, 246);
+}
+
+.modal-header{
+    background: #5bbb18;
+}
+
+.modal-body{
+    background:rgb(234, 239, 234);
+}
+
+/* control how the modal transition */
+.fade {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s linear;
+       -moz-transition: opacity 0.5s linear;
+        -ms-transition: opacity 0.5s linear;
+         -o-transition: opacity 0.5s linear;
+            transition: opacity 0.5s linear;
+  }
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 50px;
+    margin-top:0.4rem;
+    width:14rem;
+    -webkit-box-shadow: 0px 0px 100px 0px rgba(149, 151, 149, 0.77); 
+    box-shadow: 0px 0px 100px 0px rgba(149, 151, 149, 0.77);   
+    transition:0.2s linear;
+}
+
+.instr{
+    line-height: 1.6;
+    color:#8f9199;
+    letter-spacing:0.08rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.measureTable td{
+    color:#8f9199;
+    padding: 0.2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mealImg img{
+    width: 100%;
+    height:auto;
+}
+
+/* sticky footer styles */
+.fixed-bottom{
+    height: 70px;
+    background: #666666;
+    text-align: center;   
+}
+
+.copyRight{
+    margin: 25px auto;
+    color: #cccccc;
+}
+
+.clear{
+    height: 2rem;
+}
+
+#title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    color: rgb(106,195,29);
+    background: #eaefeafc;
+    padding: 0.7rem;
+    box-shadow: 0 4px 7px 0 rgba(228, 238, 230, 0.2), 0 6px 20px 0 rgba(228, 238, 230, 0.2);
+}
+
+.tableDiv{
+    -webkit-box-shadow: -11px 12px 50px 0px rgba(0,0,0,0.29); 
+box-shadow: -11px 12px 50px 0px rgba(0,0,0,0.29);
+}
+
+.save{
+    width:100%;
+    height:auto;
+}
+
+#ingreDiv{
+background:rgb(251, 250, 250);
+}
+
+
+.ingredients__text {
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.9;
     text-align: center;
