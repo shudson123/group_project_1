@@ -8,10 +8,8 @@ var config = {
     messagingSenderId: "110594113089"
 };
 
-
 firebase.initializeApp(config);
 var database = firebase.database();
-
 
 //Push recipe into Firebase storage
 $(document).on('click', '#firebase', function () {
@@ -28,7 +26,7 @@ database.ref().on("child_added", function (childSnapshot) {
     //prevent duplicate recipes from repeating in the collection
     if ($(`span[data-meal="${snapMeal}"]`).length > 0) return;
     $('#favList').prepend(list);
-},
+     },
     function (errorObject) {
         console.log("The read failed: " + errorObject.code);
-    });
+});
