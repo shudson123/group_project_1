@@ -25,7 +25,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var snapPhoto = childSnapshot.val().mealPhoto;
     var list = `<span data-meal="${snapMeal}" class="dropdown-item text-truncate "><img class="mealThumbnail img-thumbnail" src="${snapPhoto}">${snapMeal}</span>`;
 
-    //Stops a recipe from repeating in the collection
+    //prevent duplicate recipes from repeating in the collection
     if ($(`span[data-meal="${snapMeal}"]`).length > 0) return;
     $('#favList').prepend(list);
 },
