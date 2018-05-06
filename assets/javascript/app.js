@@ -23,14 +23,11 @@ $(document).on('click','.dropdown-item', function () {
     search();
 });
 
+//
 function search (){
-    //evaluate that search is not empty string
-
-
    history.pushState({page: 2}, "title 2", "?page=2");
     
 //evaluate that search is not empty string
-
     if (term.length > 0) {
         $('#errorText').text('');
         var settings = {
@@ -41,11 +38,10 @@ function search (){
         $.ajax(settings).done(function (response) {
             //evaluate that only meal that is in the meal database is returned
             if (response.meals === null) {
-                //if meal not found, display message
                 $('#input').val('').focus();
                 $('#input').attr('placeholder', 'Oops! your search does not match anything.');
-                //if meal is found, generate result and display in table
-                } else {                    
+                } else { 
+                     //if meal is found, generate result
                     $('body').addClass('secondBackground');
                     $('#majorContainer').empty();
                     $('#majorContainer').append($page);
@@ -59,7 +55,7 @@ function search (){
                     }
                 }
         });
-    //if search is empty, display message    
+    //if search is empty, display feedback message to user    
     } else {
         $('.form-control').css('border', '1px solid red');
         $('#input').attr('placeholder', 'Please enter a valid search value');
