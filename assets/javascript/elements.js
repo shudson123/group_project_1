@@ -25,28 +25,28 @@ var $resultPage = `<div class="row">
              <hr>`;
 
 var $page = `<div class="container" id="container"></div>
-                 <div id='modal' class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                            <div class="modal-body" id="modalBody">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Meal Has Been Added!</button>
-                            <div id="" saveMessage>
-                                <img class="save" src="assets/images/save.gif">
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
+<div id='modal' class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Meal Has Been Added!</button>
+            <div id="" saveMessage>
+                <img class="save" src="assets/images/save.gif">
+            </div>
+        </div>
+    </div>
+</div>`;
 
 var $headerDiv = `<div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xm-12">  
@@ -68,8 +68,8 @@ var $headerDiv = `<div class="row">
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="buttonDiv">
                                     <button class="btn btn-danger btn-lg justify-content-center" id="video" data-toggle="modal" data-target=".bd-example-modal-lg">Watch Video</button>
-                                    <a class="btn btn-primary btn-lg justify-content-center" target="_blank" id="sourceLink">Learn More</a>
-                                    <button class="btn btn-secondary btn-lg justify-content-center" id="firebase" data-toggle="modal" data-target=".bd-example-modal-sm">Add to Favorites</button>
+                                    <a class="btn btn-outline-primary btn-lg justify-content-center" target="_blank" id="sourceLink">Learn More</a>
+                                    <button class="btn btn-outline-success btn-lg justify-content-center" id="firebase" data-toggle="modal" data-target=".bd-example-modal-sm">Add to Collections</button>
                                 </div>
                           </div>
                       </div>
@@ -138,3 +138,15 @@ var $homePageContent = `<div class="row justify-content-lg-center">
 
 var $mealVideo = `<iframe id="videoIframe" class="embed-responsive-item" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
 
+var $nutrientTable = `<table class="table table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nutrient</th>
+                                <th scope="col" id = "servingSize"></th>
+                                <th scope="col" id = "hundredGram">Amout Per 100g</th>
+                            </tr>
+                        </thead>
+                        <tbody id="nutritionTable">
+                            
+                        </tbody>
+                    </table>`;
