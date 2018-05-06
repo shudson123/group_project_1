@@ -1,12 +1,12 @@
 // GLOBAL VERIABLES
 var meal, videoSource, mealName, photo, source,
-area, inst, category, ingArray, meaArray, favMeal, term, tracker;
+area, inst, category, ingArray, meaArray, favMeal, term;
 
 window.addEventListener('popstate', function(event) {
     // The popstate event is fired each time when the current history entry changes.
         history.back();
         
-         window.location = document.referrer
+         window.location = document.referrer;
          history.pushState({page: 1}, "title 1", "?page=1");
 }, false);
 
@@ -133,17 +133,18 @@ $(document).on('click', '.index', function () {
 
 //open the instrctional video in a modal window
 $(document).on('click', '#video', function () {
-    $('#modalBody').empty().append($mealVideo);
+    $('#modalBody').append($mealVideo);
     $('#exampleModalLabel').text('Instructional Video for ' + mealName);
     var videoID = videoSource.split('v=', 2)[1];
     $('#videoIframe').attr('src', `https://www.youtube.com/embed/${videoID}?autoplay=1`);
-    $('#modalBody').append($mealVideo);
+    // $('#modalBody').append($mealVideo);
 });
 
 //remove all content from the modal when it is closed
 $('body').on('hidden.bs.modal', '.modal', function () {
-    $('#exampleModalLabel').text('');
     $('#modalBody').empty();
+    $('#exampleModalLabel').text('');
+    
 });
 
 // add the source reference to the link
