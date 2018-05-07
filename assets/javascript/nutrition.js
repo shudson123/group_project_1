@@ -35,7 +35,7 @@ $(document).on('click', '.mealItem', function () {
     // this area enters the name of the food, the serving size, list of nutrients and nutrient amount for the selected ingredient into a table
     $.ajax(settings).done(function (response) {
       var food = response.foods[0];
-      console.log(food);
+//       console.log(food);
       var gramEquation = 100 / (food.serving_weight_grams);
       var servingSize = ("Per " + food.serving_unit + " (" + food.serving_weight_grams + " grams)");
       var nutrientNames = [];
