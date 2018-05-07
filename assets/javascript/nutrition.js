@@ -35,7 +35,7 @@ $(document).on('click', '.mealItem', function () {
     // this area enters the name of the food, the serving size, list of nutrients and nutrient amount for the selected ingredient into a table
     $.ajax(settings).done(function (response) {
       var food = response.foods[0];
-//       console.log(food);
+      console.log(food);
       var gramEquation = 100 / (food.serving_weight_grams);
       var servingSize = ("Per " + food.serving_unit + " (" + food.serving_weight_grams + " grams)");
       var nutrientNames = [];
@@ -54,6 +54,8 @@ $(document).on('click', '.mealItem', function () {
       for (var l = 0; l < nutrientNames.length && l < nutrientValues.length; l++) {
         if (nutrientNames[l] == 'Cholesterol' || nutrientNames[l] == 'Sodium' || nutrientNames[l] == 'Potassium') {
           nutrName = nutrientNames[l]+ '(mg)';
+        } else if(nutrientNames[l] == 'Calories'){
+          nutrName = nutrientNames[l];
         } else {
           nutrName = nutrientNames[l]+ '(g)';
         }
