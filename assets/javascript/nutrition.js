@@ -61,7 +61,7 @@ $(document).on('click', '.mealItem', function () {
         }
         var nutrValue = nutrientValues[l];
         var $nutrRow = `<tr class="nutrientRow">
-                            <td>${nutrName.split('_').join(' ')}</td>
+                            <td class='nutritionName'>${nutrName.split('_').join(' ')}</td>
                             <td>${Math.round(nutrValue)}</td>
                             <td>${Math.round(gramEquation * nutrValue)}</td>
                         </tr>`;
