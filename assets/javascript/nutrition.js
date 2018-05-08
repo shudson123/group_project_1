@@ -1,7 +1,7 @@
 //this click event will get the text from the ingredient and pass it to the nutrition api
 $(document).on('click', '.mealItem', function () {
   var chosenIngredient = $(this).text();
-  var image = 'https://www.themealdb.com/images/ingredients/'+chosenIngredient+'.png';
+  var image = 'https://www.themealdb.com/images/ingredients/' + chosenIngredient + '.png';
  
   //this query uses the natural word api to pull a matching ingredient name for the next api
   var common = {
