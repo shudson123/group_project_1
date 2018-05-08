@@ -24,7 +24,6 @@ Challenges:
 - Because there are many ways to do one thing, it was challenging to decide on the final solution for any one problem whether it was the design, functionality of the app, etc. 
 -  pushing and pulling updates from GitHub using the command line
 
-Improvements:
 Changes we would make going forward would be:
 - Search first by nutrient to find recipe
 - List restaurants with similar meal or culinary as a bonus
