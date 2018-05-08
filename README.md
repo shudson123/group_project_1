@@ -15,6 +15,7 @@ After brainstorming ideas and APIs together, a landing page was first created be
 APIs Used:
 - Meal Database API
 - NutrionIX API
+- Natural Nutrient API
 
 Techonologies Used:
 HTML, CSS, Javascript, jQuery, Bootstrap, Modernizr, Firebase DB
