@@ -1,7 +1,8 @@
 //this click event will get the text from the ingredient and pass it to the nutrition api
 $(document).on('click', '.mealItem', function () {
   var chosenIngredient = $(this).text();
-
+  var image = 'https://www.themealdb.com/images/ingredients/'+chosenIngredient+'.png';
+ 
   //this query uses the natural word api to pull a matching ingredient name for the next api
   var common = {
     "url": "https://trackapi.nutritionix.com/v2/search/instant",
@@ -35,7 +36,7 @@ $(document).on('click', '.mealItem', function () {
     // this area enters the name of the food, the serving size, list of nutrients and nutrient amount for the selected ingredient into a table
     $.ajax(settings).done(function (response) {
       var food = response.foods[0];
-      console.log(food);
+      // console.log(food);
       var gramEquation = 100 / (food.serving_weight_grams);
       var servingSize = ("Per " + food.serving_unit + " (" + food.serving_weight_grams + " grams)");
       var nutrientNames = [];
@@ -49,6 +50,7 @@ $(document).on('click', '.mealItem', function () {
         }
       });
       var nutrName;
+      
       //append the table that will hold the nutrient info onto the modal body
       $('#modalBody').append($nutrientTable);
       for (var l = 0; l < nutrientNames.length && l < nutrientValues.length; l++) {
@@ -68,6 +70,8 @@ $(document).on('click', '.mealItem', function () {
         //append the nutrient row to the nutriention table on the modal
         $('#nutritionTable').append($nutrRow);
       }
+      // console.log(image);
+      $('#ingredientImage').attr('src', image);
       $('#exampleModalLabel').text(chosenIngredient);
       $('#servingSize').text(servingSize);
     });
