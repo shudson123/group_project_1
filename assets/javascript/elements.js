@@ -138,15 +138,27 @@ var $homePageContent = `<div class="row justify-content-lg-center">
 
 var $mealVideo = `<iframe id="videoIframe" class="embed-responsive-item" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
 
-var $nutrientTable = `<table class="table table-sm table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nutrient</th>
-                                <th scope="col" id = "servingSize"></th>
-                                <th scope="col" id = "hundredGram">Amout Per 100g</th>
-                            </tr>
-                        </thead>
-                        <tbody id="nutritionTable">
-                            
-                        </tbody>
-                    </table>`;
+var $nutrientTable = `<div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div>
+                                    <img class="img-fluid max-width: 100%; height: auto" id="ingredientImage">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div>
+                                    <table class="table table-sm table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nutrient</th>
+                                                <th scope="col" id="servingSize"></th>
+                                                <th scope="col" id="hundredGram">Amout Per 100g</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="nutritionTable">
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            </div>`;
