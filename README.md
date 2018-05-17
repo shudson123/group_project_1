@@ -1,4 +1,4 @@
-Project 1: Create your first app!
+Group Project 1: Create your first app!
 
 Description: 
 Alimentum is an app created for people who are not only searching for the perfect meal, but want to also learn about each meal’s nutrition value. Alimentum can be used by all, but built with the demographic of intermediate to advanced cooks who are cooking to impress. Because of that, users search by meal instead of ingredients. With advanced cooks in mind, nutrition is important which is why we choose to display that information for each meal. This allows each user to learn more about their meal if they have diet restrictions or have a specific health lifestyle.
