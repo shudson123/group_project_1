@@ -138,10 +138,12 @@ a img{
 /* modal style */
 .bd-example-modal-lg {
     height:600px;
+    border-radius:10px; 
 }
 
 .modal-sm{
     height:300px;
+    border-radius:10px; 
 }
 
 .modal-title{
@@ -217,8 +219,7 @@ a img{
 }
 
 .tableDiv{
-    -webkit-box-shadow: -11px 12px 50px 0px rgba(0,0,0,0.29); 
-box-shadow: -11px 12px 50px 0px rgba(0,0,0,0.29);
+
 }
 
 .save{
@@ -297,4 +298,12 @@ margin-right:0.2rem;
 
 .nutritionName{
     font-weight: bold;
+}
+
+.table-striped th{
+    font-size: 0.80rem;
+}
+
+.table-striped td{
+    font-size: 0.78rem;
 }
