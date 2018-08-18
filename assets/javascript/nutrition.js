@@ -9,7 +9,7 @@ $(document).on('click', '.mealItem', function () {
     "method": "GET",
     "headers": {
       "x-app-id": "f27d5bae",
-      "x-app-key": APIKEY,
+      "x-app-key": '3858e7b7b95259090466bdb18fe5293f',
       "x-remote-user-id": '0',
     },
     "data": {
@@ -25,7 +25,7 @@ $(document).on('click', '.mealItem', function () {
       "method": "POST",
       "headers": {
         "x-app-id": "f27d5bae",
-        "x-app-key": APIKEY,
+        "x-app-key": '3858e7b7b95259090466bdb18fe5293f',
         "x-remote-user-id": '0',
       },
       "data": {
