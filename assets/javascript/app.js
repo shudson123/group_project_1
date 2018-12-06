@@ -113,7 +113,7 @@ $(document).on('click', '.index', function () {
     $('#sourceLink').attr('href', source);
   
 //add ingredients and measurement 
-    for (var k = 0; k < ingArray.length && k < meaArray.length; k++) {
+    for (var k = 0; k < ingArray.length; k++) {
         var meaIng = ingArray[k].charAt(0).toUpperCase() + ingArray[k].toLowerCase().slice(1);
         var meas = meaArray[k];
         var line = `<tr class=" ing ingredients__text">
